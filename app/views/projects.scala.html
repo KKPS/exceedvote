@@ -1,0 +1,25 @@
+@(projects: List[Project], projectForm: Form[Project])
+
+@import helper._
+
+@main("Project") {
+	<h1>Project.scala.html</h1>
+	<h3>Add a new Project</h3>
+	@form(routes.Projects.create()) {
+		@inputText(projectForm("name"))
+		@textarea(projectForm("description"))
+		<input type="submit" value="Save Project">
+	}
+	<h3>List of all Projects</h3>
+	@if(projects.isEmpty()) {
+		<p>No project now</p>
+	} else {
+		@for(project <- projects) {
+			<p><a href="/project/@project.name">@project.name</a></p>
+			<p>@project.description</p>
+			@form(routes.Projects.delete(project.id)) {
+				<input type="submit" value="Delete">
+			}
+		}
+	}
+}

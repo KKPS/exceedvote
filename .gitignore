@@ -15,7 +15,7 @@ dist
 /.project
 /RUNNING_PID
 
-# additional ignore files types
+# additional ignore files
 
 .DS_Store
 .target

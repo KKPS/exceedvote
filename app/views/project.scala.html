@@ -1,4 +1,4 @@
-@(project: Project)
+@(project: Project, projectForm: Form[Project])
 
 @import helper._
 
@@ -7,8 +7,13 @@
 		<p>Not found!</p>
 	}
 } else {
-	@main("@project.name") {
+	@main(project.name) {
 		<h1>@project.name</h1>
 		<p>@project.description</p>
+		@form(routes.Projects.update(project.name)) {
+			@inputText(projectForm("name"))
+			@textarea(projectForm("description"))
+			<input type="submit" value="Save Project">
+		}
 	}
 }

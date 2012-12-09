@@ -7,7 +7,7 @@ import play.data.validation.*;
 
 @Entity
 public class Project extends Model {
-
+	
 	@Id
 	public Long id;
 	

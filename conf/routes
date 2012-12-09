@@ -9,7 +9,8 @@ GET     /                           controllers.Application.index()
 GET     /project                    controllers.Projects.index()
 POST    /project                    controllers.Projects.create()
 GET     /project/:name              controllers.Projects.project(name: String)
-POST    /project/:id/delete         controllers.Projects.delete(id: Long)
+POST    /project/:name              controllers.Projects.update(name: String)
+POST    /project/:name/delete       controllers.Projects.delete(name: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

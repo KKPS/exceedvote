@@ -17,7 +17,7 @@
 		@for(project <- projects) {
 			<p><a href="/project/@project.name">@project.name</a></p>
 			<p>@project.description</p>
-			@form(routes.Projects.delete(project.id)) {
+			@form(routes.Projects.delete(project.name)) {
 				<input type="submit" value="Delete">
 			}
 		}

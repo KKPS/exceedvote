@@ -3,12 +3,13 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Projects.index()
-POST    /                           controllers.Projects.create()
-POST    /:id/delete                 controllers.Projects.delete(id: Long)
+GET     /                           controllers.Application.index()
 
 # Project
-GET     /project/:name                controllers.Projects.project(name: String)
+GET     /project                    controllers.Projects.index()
+POST    /project                    controllers.Projects.create()
+GET     /project/:name              controllers.Projects.project(name: String)
+POST    /project/:id/delete         controllers.Projects.delete(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

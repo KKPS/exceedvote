@@ -6,17 +6,15 @@ import play.db.ebean.*;
 import play.data.validation.*;
 
 @Entity
-public class Project extends Model {
-	
+public class Criterion extends Model {
+
 	@Id
 	public Long id;
 	
 	@Constraints.Required
-	public String name;
+	public String question;
 	
-	public String description;
-	
-	public static Finder<Long, Project> find = new Finder<Long, Project>(Long.class, Project.class);
+	public static Finder<Long, Criterion> find = new Finder<Long, Criterion>(Long.class, Criterion.class);
 	
 	public String toString() {
 		return "";

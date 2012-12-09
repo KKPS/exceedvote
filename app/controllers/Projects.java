@@ -7,6 +7,7 @@ import play.mvc.*;
 import models.*;
 import views.html.*;
 
+@Security.Authenticated(Secured.class)
 public class Projects extends Controller {
 
 	static Form<Project> projectForm = form(Project.class);

@@ -1,0 +1,18 @@
+@(loginForm: Form[Application.Login])
+
+@import helper._
+
+@main("Login") {
+	<h1>login.scala.html</h1>
+	@helper.form(routes.Application.authenticate) {
+		@if(loginForm.hasGlobalErrors) {
+			@loginForm.globalError.message
+		}
+		@if(flash.contains("success")) {
+			@flash.get("success")
+		}
+		<input type="text" name="username" placeholder="Username">
+		<input type="password" name="password" placeholder="Password">
+		<input type="submit" value="Login">
+	}
+}

@@ -1,0 +1,15 @@
+@(user: User, criteria: List[Criterion], projects: List[Project])
+
+@import helper._
+
+@main("Vote") {
+	<h1>Vote.scala.html</h1>
+	<p>Logged in as @user.username</p>
+	<h3>Add Questions (Criteria)</h3>
+	@for(criterion <- criteria) {
+		<p>@criterion.question</p>
+		@for(project <- projects) {
+			<p>@project.name</p>
+		}
+	}
+}

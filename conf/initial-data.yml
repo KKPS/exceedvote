@@ -1,0 +1,29 @@
+# Users
+
+users:
+
+    - !!models.User
+        username:        admin
+        password:        admin
+
+projects:
+
+    - !!models.Project
+        id:              1
+        name:            WorldNote
+        description:     WorldNote is WorldNote
+
+    - !!models.Project
+        id:              2
+        name:            ExceedVote
+        description:     ExceedVote by KKPS
+
+criteria:
+
+    - !!models.Criterion
+        id:              1
+        question:        Popular Vote
+
+    - !!models.Criterion
+        id:              2
+        question:        Best UI & UX

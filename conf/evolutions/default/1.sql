@@ -3,14 +3,22 @@
 
 # --- !Ups
 
+create table ballot (
+  id                        bigint auto_increment not null,
+  user_username             varchar(255),
+  project_id                bigint,
+  criterion_id              bigint,
+  constraint pk_ballot primary key (id))
+;
+
 create table criterion (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   question                  varchar(255),
   constraint pk_criterion primary key (id))
 ;
 
 create table project (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   name                      varchar(255),
   description               varchar(255),
   constraint pk_project primary key (id))
@@ -22,30 +30,26 @@ create table user (
   constraint pk_user primary key (username))
 ;
 
-create sequence criterion_seq;
-
-create sequence project_seq;
-
-create sequence user_seq;
-
+alter table ballot add constraint fk_ballot_user_1 foreign key (user_username) references user (username) on delete restrict on update restrict;
+create index ix_ballot_user_1 on ballot (user_username);
+alter table ballot add constraint fk_ballot_project_2 foreign key (project_id) references project (id) on delete restrict on update restrict;
+create index ix_ballot_project_2 on ballot (project_id);
+alter table ballot add constraint fk_ballot_criterion_3 foreign key (criterion_id) references criterion (id) on delete restrict on update restrict;
+create index ix_ballot_criterion_3 on ballot (criterion_id);
 
 
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists criterion;
+drop table ballot;
 
-drop table if exists project;
+drop table criterion;
 
-drop table if exists user;
+drop table project;
 
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table user;
 
-drop sequence if exists criterion_seq;
-
-drop sequence if exists project_seq;
-
-drop sequence if exists user_seq;
+SET FOREIGN_KEY_CHECKS=1;
 

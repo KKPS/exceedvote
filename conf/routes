@@ -12,6 +12,7 @@ GET     /logout                     controllers.Application.logout()
 
 # Vote (Home)
 GET     /                           controllers.Votes.index()
+POST    /                           controllers.Votes.vote()
 
 # Project
 GET     /project                    controllers.Projects.index()
@@ -19,6 +20,9 @@ POST    /project                    controllers.Projects.create()
 GET     /project/:name              controllers.Projects.project(name: String)
 POST    /project/:name              controllers.Projects.update(name: String)
 POST    /project/:name/delete       controllers.Projects.delete(name: String)
+
+# Ballot
+GET     /ballot                     controllers.Ballots.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

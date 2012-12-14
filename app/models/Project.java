@@ -18,6 +18,10 @@ public class Project extends Model {
 	
 	public static Finder<Long, Project> find = new Finder<Long, Project>(Long.class, Project.class);
 	
+	public String getName() {
+		return name;
+	}
+
 	public String toString() {
 		return "";
 	}

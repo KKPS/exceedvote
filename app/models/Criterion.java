@@ -14,6 +14,14 @@ public class Criterion extends Model {
 	@Constraints.Required
 	public String question;
 	
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
 	public static Finder<Long, Criterion> find = new Finder<Long, Criterion>(Long.class, Criterion.class);
 	
 	public String toString() {

@@ -1,0 +1,13 @@
+@(ballots: List[Ballot])
+
+@import helper._
+
+@main("Ballots") {
+	<h1>All Ballots</h1>
+	@for(ballot <- ballots) {
+		<h3>Ballot: @ballot.id</h3>
+		<p>by: @ballot.user.username</p>
+		<p>for: @ballot.project.getName()</p>
+		<p>in: @ballot.criterion.getQuestion()</p>
+	}
+}

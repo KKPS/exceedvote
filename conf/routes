@@ -21,6 +21,10 @@ GET     /project/:name              controllers.Projects.project(name: String)
 POST    /project/:name              controllers.Projects.update(name: String)
 POST    /project/:name/delete       controllers.Projects.delete(name: String)
 
+# Criterion
+GET     /criterion                  controllers.Criteria.index()
+POST    /criterion                  controllers.Criteria.create()
+
 # Ballot
 GET     /ballot                     controllers.Ballots.index()
 

@@ -26,8 +26,8 @@ public class Projects extends Controller {
 	}
 	
 	public static Result create() {
-		Form<Project> insertForm = form(Project.class).bindFromRequest();
-		insertForm.get().save();
+		Form<Project> createForm = form(Project.class).bindFromRequest();
+		createForm.get().save();
 		return ok(views.html.projects.render(Project.find.all(), projectForm));
 	}
 	

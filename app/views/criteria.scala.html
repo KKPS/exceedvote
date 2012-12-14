@@ -1,0 +1,21 @@
+@(criteria: List[Criterion])
+
+@import helper._
+
+@main("Criteria") {
+	<h1>criteria.scala.html</h1>
+	<h3>Add a new Criterion</h3>
+	@form(routes.Criteria.create()) {
+		<input type="text" name="question">
+		<input class="btn btn-primary" type="submit" value="Save Criterion">
+	}
+	<h3>List of all Criteria</h3>
+	@if(criteria.isEmpty()) {
+		<p>No criterion now</p>
+	} else {
+		@for(criterion <- criteria) {
+			<p><a href="/criterion/@criterion.id">@criterion.question</a></p>
+			<input class="btn btn-danger" type="submit" value="Delete">
+		}
+	}
+}

@@ -1,0 +1,17 @@
+@(criterion: Criterion, criterionForm: Form[Criterion])
+
+@import helper._
+
+@if(criterion==null) {
+	@main("Not found") {
+		<p>Not found!</p>
+	}
+} else {
+	@main(criterion.question) {
+		<h1>@criterion.question</h1>
+		@form(routes.Criteria.update(criterion.id)) {
+			@inputText(criterionForm("question"))
+			<input class="btn btn-primary" type="submit" value="Save">
+		}
+	}
+}

@@ -1,4 +1,4 @@
-@(criteria: List[Criterion])
+@(criteria: List[Criterion], criterionForm: Form[Criterion])
 
 @import helper._
 
@@ -15,7 +15,9 @@
 	} else {
 		@for(criterion <- criteria) {
 			<p><a href="/criterion/@criterion.id">@criterion.question</a></p>
-			<input class="btn btn-danger" type="submit" value="Delete">
+			@form(routes.Criteria.delete(criterion.id)) {
+				<input class="btn btn-danger" type="submit" value="Delete">
+			}
 		}
 	}
 }

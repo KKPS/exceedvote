@@ -24,6 +24,9 @@ POST    /project/:name/delete       controllers.Projects.delete(name: String)
 # Criterion
 GET     /criterion                  controllers.Criteria.index()
 POST    /criterion                  controllers.Criteria.create()
+GET     /criterion/:id              controllers.Criteria.criterion(id: Long)
+POST    /criterion/:id              controllers.Criteria.update(id: Long)
+POST    /criterion/:id/delete       controllers.Criteria.delete(id: Long)
 
 # Ballot
 GET     /ballot                     controllers.Ballots.index()

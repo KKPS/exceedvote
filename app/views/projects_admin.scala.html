@@ -15,7 +15,7 @@
 		<p>No project now</p>
 	} else {
 		@for(project <- projects) {
-			<p><a href="/project/@project.name">@project.name</a></p>
+			<p><a href="/admin/project/@project.name">@project.name</a></p>
 			<p>@project.description</p>
 			@form(admin.routes.Projects.delete(project.name)) {
 				<input type="submit" value="Delete">

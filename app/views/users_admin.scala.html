@@ -4,4 +4,25 @@
 
 @main("Users") {
 	<h1>Users.scala.html</h1>
+	<h3>Add a new User</h3>
+	@form(admin.routes.Users.create()) {
+		<p>Username: <input type="text" name="username"></p>
+		<p>Password: <input type="text" name="password"></p>
+		<p><input class="btn btn-primary" type="submit" value="Save User"></p>
+	}
+	<h3>List of all Users</h3>
+	<table class="table table-bordered">
+		<tr>
+			<th>Username</th>
+			<th>Password</th>
+			<th>Full Name</th>
+		</tr>
+		@for(user <- users) {
+			<tr>
+				<td><a href="/admin/user/@user.username">@user.username</a></td>
+				<td>@user.password</td>
+				<td>James Edward Brucker</td>
+			</tr>
+		}
+	</table>
 }

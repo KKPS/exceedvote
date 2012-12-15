@@ -13,6 +13,10 @@ GET     /logout                         controllers.Application.logout()
 
 # Admin Panel - User
 GET     /admin/user                     controllers.admin.Users.index()
+POST    /admin/user                     controllers.admin.Users.create()
+GET     /admin/user/:username           controllers.admin.Users.user(username: String)
+POST    /admin/user/:username           controllers.admin.Users.update(username: String)
+POST    /admin/user/:username/delete    controllers.admin.Users.delete(username: String)
 
 # Admin Panel - Project
 GET     /admin/project                  controllers.admin.Projects.index()

@@ -1,0 +1,18 @@
+@(user: User, userForm: Form[User])
+
+@import helper._
+
+@if(user==null) {
+	@main("Not found") {
+		<p>Not found!</p>
+	}
+} else {
+	@main(user.username) {
+		<h1>@user.username</h1>
+		@form(admin.routes.Users.update(user.username)) {
+			@inputText(userForm("username"))
+			@inputPassword(userForm("password"))
+			<input type="submit" value="Save User">
+		}
+	}
+}

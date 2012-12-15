@@ -5,7 +5,7 @@
 @main("Project") {
 	<h1>Project.scala.html</h1>
 	<h3>Add a new Project</h3>
-	@form(routes.Projects.create()) {
+	@form(admin.routes.Projects.create()) {
 		@inputText(projectForm("name"))
 		@textarea(projectForm("description"))
 		<input type="submit" value="Save Project">
@@ -17,7 +17,7 @@
 		@for(project <- projects) {
 			<p><a href="/project/@project.name">@project.name</a></p>
 			<p>@project.description</p>
-			@form(routes.Projects.delete(project.name)) {
+			@form(admin.routes.Projects.delete(project.name)) {
 				<input type="submit" value="Delete">
 			}
 		}

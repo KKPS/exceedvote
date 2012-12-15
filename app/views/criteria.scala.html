@@ -5,7 +5,7 @@
 @main("Criteria") {
 	<h1>criteria.scala.html</h1>
 	<h3>Add a new Criterion</h3>
-	@form(routes.Criteria.create()) {
+	@form(admin.routes.Criteria.create()) {
 		<input type="text" name="question">
 		<input class="btn btn-primary" type="submit" value="Save Criterion">
 	}
@@ -15,7 +15,7 @@
 	} else {
 		@for(criterion <- criteria) {
 			<p><a href="/criterion/@criterion.id">@criterion.question</a></p>
-			@form(routes.Criteria.delete(criterion.id)) {
+			@form(admin.routes.Criteria.delete(criterion.id)) {
 				<input class="btn btn-danger" type="submit" value="Delete">
 			}
 		}

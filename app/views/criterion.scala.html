@@ -9,7 +9,7 @@
 } else {
 	@main(criterion.question) {
 		<h1>@criterion.question</h1>
-		@form(routes.Criteria.update(criterion.id)) {
+		@form(admin.routes.Criteria.update(criterion.id)) {
 			@inputText(criterionForm("question"))
 			<input class="btn btn-primary" type="submit" value="Save">
 		}

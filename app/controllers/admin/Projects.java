@@ -1,5 +1,6 @@
-package controllers;
+package controllers.admin;
 
+import controllers.Secured;
 import play.*;
 import play.data.*;
 import play.mvc.*;

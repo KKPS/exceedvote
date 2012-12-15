@@ -2,34 +2,38 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /home                       controllers.Application.index()
+# Dashboard
+GET     /                               controllers.Votes.index()
+POST    /                               controllers.Votes.vote()
 
 # Login & Authenticate
-GET     /login                      controllers.Application.login()
-POST    /login                      controllers.Application.authenticate()
-GET     /logout                     controllers.Application.logout()
+GET     /login                          controllers.Application.login()
+POST    /login                          controllers.Application.authenticate()
+GET     /logout                         controllers.Application.logout()
 
-# Vote (Home)
-GET     /                           controllers.Votes.index()
-POST    /                           controllers.Votes.vote()
+# Admin Panel - User
+GET     /admin/user                     controllers.admin.Users.index()
+POST    /admin/user                     controllers.admin.Users.create()
+GET     /admin/user/:username           controllers.admin.Users.user(username: String)
+POST    /admin/user/:username           controllers.admin.Users.update(username: String)
+POST    /admin/user/:username/delete    controllers.admin.Users.delete(username: String)
 
-# Project
-GET     /project                    controllers.Projects.index()
-POST    /project                    controllers.Projects.create()
-GET     /project/:name              controllers.Projects.project(name: String)
-POST    /project/:name              controllers.Projects.update(name: String)
-POST    /project/:name/delete       controllers.Projects.delete(name: String)
+# Admin Panel - Project
+GET     /admin/project                  controllers.admin.Projects.index()
+POST    /admin/project                  controllers.admin.Projects.create()
+GET     /admin/project/:name            controllers.admin.Projects.project(name: String)
+POST    /admin/project/:name            controllers.admin.Projects.update(name: String)
+POST    /admin/project/:name/delete     controllers.admin.Projects.delete(name: String)
 
-# Criterion
-GET     /criterion                  controllers.Criteria.index()
-POST    /criterion                  controllers.Criteria.create()
-GET     /criterion/:id              controllers.Criteria.criterion(id: Long)
-POST    /criterion/:id              controllers.Criteria.update(id: Long)
-POST    /criterion/:id/delete       controllers.Criteria.delete(id: Long)
+# Admin Panel - Criterion
+GET     /admin/criterion                controllers.admin.Criteria.index()
+POST    /admin/criterion                controllers.admin.Criteria.create()
+GET     /admin/criterion/:id            controllers.admin.Criteria.criterion(id: Long)
+POST    /admin/criterion/:id            controllers.admin.Criteria.update(id: Long)
+POST    /admin/criterion/:id/delete     controllers.admin.Criteria.delete(id: Long)
 
-# Ballot
-GET     /ballot                     controllers.Ballots.index()
+# Admin Panel - Ballot
+GET     /admin/ballot                   controllers.admin.Ballots.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file                   controllers.Assets.at(path="/public", file)

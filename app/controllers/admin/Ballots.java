@@ -10,7 +10,7 @@ import views.html.*;
 public class Ballots extends Controller {
 	
 	public static Result index() {
-		return ok(views.html.ballots.render(Ballot.find.all()));
+		return ok(views.html.ballots_admin.render(Ballot.find.all()));
 	}
 	
 }

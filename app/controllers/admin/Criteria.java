@@ -10,7 +10,7 @@ import views.html.*;
 public class Criteria extends Controller {
 
 	public static Result index() {
-		return ok(views.html.criteria.render(Criterion.find.all(), form(Criterion.class)));
+		return ok(views.html.criteria_admin.render(Criterion.find.all(), form(Criterion.class)));
 	}
 	
 	public static Result criterion(Long id) {
@@ -19,13 +19,13 @@ public class Criteria extends Controller {
 		if (criterion != null) {
 			editForm = editForm.fill(criterion);
 		}
-		return ok(views.html.criterion.render(criterion, editForm));
+		return ok(views.html.criterion_admin.render(criterion, editForm));
 	}
 	
 	public static Result create() {
 		Form<Criterion> createForm = form(Criterion.class).bindFromRequest();
 		createForm.get().save();
-		return ok(views.html.criteria.render(Criterion.find.all(), form(Criterion.class)));
+		return ok(views.html.criteria_admin.render(Criterion.find.all(), form(Criterion.class)));
 	}
 	
 	public static Result update(Long id) {
@@ -33,13 +33,13 @@ public class Criteria extends Controller {
 		Form<Criterion> updateForm = form(Criterion.class).bindFromRequest();
 		Criterion updated = updateForm.get();
 		updated.update(criterion.id);
-		return ok(views.html.criterion.render(updated, updateForm));
+		return ok(views.html.criterion_admin.render(updated, updateForm));
 	}
 	
 	public static Result delete(Long id) {
 		Criterion criterion = Criterion.find.ref(id);
 		criterion.delete();
-		return redirect("/criterion");
+		return redirect("/admin/criterion");
 	}
 	
 }

@@ -14,7 +14,7 @@ public class Criteria extends Controller {
 	}
 	
 	public static Result criterion(Long id) {
-		Criterion criterion = Criterion.find.ref(id);
+		Criterion criterion = Criterion.find.where().eq("id", id).findUnique();
 		Form<Criterion> editForm = form(Criterion.class);
 		if (criterion != null) {
 			editForm = editForm.fill(criterion);

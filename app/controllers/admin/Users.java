@@ -4,13 +4,15 @@ import play.*;
 import play.data.*;
 import play.mvc.*;
 
+import controllers.*;
 import models.*;
 import views.html.*;
 
+@Security.Authenticated(Secured.class)
 public class Users extends Controller {
 
 	public static Result index() {
-		return ok(views.html.users_admin.render(User.find.all(), form(User.class)));
+		return ok(views.html.users_admin.render(User.find.all(), Role.find.all(), form(User.class)));
 	}
 	
 	public static Result user(String username) {
@@ -23,30 +25,28 @@ public class Users extends Controller {
 	}
 	
 	public static Result create() {
-		Form<User> createForm = form(User.class).bindFromRequest();
-		createForm.get().save();
-		return ok(views.html.users_admin.render(User.find.all(), form(User.class)));
+		DynamicForm requestForm = form().bindFromRequest();
+		String username = requestForm.get("username");
+		String password = requestForm.get("password");
+		Long role_id = Long.parseLong(requestForm.get("role_id"));
+		Role role = Role.find.ref(role_id);
+		new User(username, password, role).save();
+		return ok(views.html.users_admin.render(User.find.all(), Role.find.all(), form(User.class)));
 	}
 	
+	// BUGGGG
 	public static Result update(String username) {
 		User user = User.find.ref(username);
 		Form<User> updateForm = form(User.class).bindFromRequest();
 		User updated = updateForm.get();
-		System.out.println(user.username + " " + user.password);
-		System.out.println(updated.username + " " + updated.password);
-		updated.update(username);
+		updated.update(user.username);
 		return ok(views.html.user_admin.render(updated, updateForm));
-		/*Criterion criterion = Criterion.find.ref(id);
-		Form<Criterion> updateForm = form(Criterion.class).bindFromRequest();
-		Criterion updated = updateForm.get();
-		updated.update(criterion.id);
-		return ok(views.html.criterion_admin.render(updated, updateForm));*/
 	}
 	
 	public static Result delete(String username) {
 		User user = User.find.ref(username);
 		user.delete();
-		return ok(views.html.users_admin.render(User.find.all(), form(User.class)));
+		return ok(views.html.users_admin.render(User.find.all(), Role.find.all(), form(User.class)));
 	}
 	
 }

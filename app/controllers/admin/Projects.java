@@ -1,10 +1,10 @@
 package controllers.admin;
 
-import controllers.Secured;
 import play.*;
 import play.data.*;
 import play.mvc.*;
 
+import controllers.*;
 import models.*;
 import views.html.*;
 

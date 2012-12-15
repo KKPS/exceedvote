@@ -1,14 +1,42 @@
-# Users
+role:
+
+    - !!models.Role
+        id:              1
+        name:            Student
+        ballot:          1
+
+    - !!models.Role
+        id:              2
+        name:            Guest
+        ballot:          3
+
+    - !!models.Role
+        id:              3
+        name:            Teacher
+        ballot:          5
 
 users:
 
     - !!models.User
         username:        admin
         password:        admin
+        role:
+            !!models.Role
+              id: 1
 
     - !!models.User
         username:        b5410545915
         password:        exceed
+        role:
+            !!models.Role
+              id: 1
+
+    - !!models.User
+        username:        teacher
+        password:        teacher
+        role:
+            !!models.Role
+              id: 3
 
 projects:
 
@@ -21,6 +49,11 @@ projects:
         id:              2
         name:            ExceedVote
         description:     ExceedVote by KKPS
+
+    - !!models.Project
+        id:              3
+        name:            CKP ExceedVote
+        description:     ExceedVote by CKP
 
 criteria:
 

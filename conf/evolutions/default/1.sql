@@ -24,9 +24,17 @@ create table project (
   constraint pk_project primary key (id))
 ;
 
+create table role (
+  id                        bigint auto_increment not null,
+  name                      varchar(255),
+  ballot                    integer,
+  constraint pk_role primary key (id))
+;
+
 create table user (
   username                  varchar(255) not null,
   password                  varchar(255),
+  role_id                   bigint,
   constraint pk_user primary key (username))
 ;
 
@@ -36,6 +44,8 @@ alter table ballot add constraint fk_ballot_project_2 foreign key (project_id) r
 create index ix_ballot_project_2 on ballot (project_id);
 alter table ballot add constraint fk_ballot_criterion_3 foreign key (criterion_id) references criterion (id) on delete restrict on update restrict;
 create index ix_ballot_criterion_3 on ballot (criterion_id);
+alter table user add constraint fk_user_role_4 foreign key (role_id) references role (id) on delete restrict on update restrict;
+create index ix_user_role_4 on user (role_id);
 
 
 
@@ -48,6 +58,8 @@ drop table ballot;
 drop table criterion;
 
 drop table project;
+
+drop table role;
 
 drop table user;
 

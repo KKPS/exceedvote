@@ -15,6 +15,8 @@ public class Role extends Model {
 
 	public int ballot;
 	
+	public static Finder<Long, Role> find = new Finder<Long, Role>(Long.class, Role.class);
+	
 	public Role() {
 		// TODO Auto-generated constructor stub
 	}
@@ -23,8 +25,6 @@ public class Role extends Model {
 		this.name = name;
 		this.ballot = ballot;
 	}
-	
-	public static Finder<Long, Role> find = new Finder<Long, Role>(Long.class, Role.class);
 	
 	public String getName() {
 		return name;

@@ -34,7 +34,10 @@ create table role (
 create table user (
   username                  varchar(255) not null,
   password                  varchar(255),
+  name                      varchar(255),
   role_id                   bigint,
+  is_admin                  tinyint(1) default 0,
+  first_login               tinyint(1) default 0,
   constraint pk_user primary key (username))
 ;
 

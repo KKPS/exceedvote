@@ -20,6 +20,9 @@ users:
     - !!models.User
         username:        admin
         password:        admin
+        name:            Administrator
+        isAdmin:         true
+        firstLogin:      false
         role:
             !!models.Role
               id: 1
@@ -27,6 +30,9 @@ users:
     - !!models.User
         username:        b5410545915
         password:        exceed
+        name:            Kanokphol Techarattanaprasert
+        isAdmin:         false
+        firstLogin:      true
         role:
             !!models.Role
               id: 1
@@ -34,6 +40,9 @@ users:
     - !!models.User
         username:        teacher
         password:        teacher
+        name:            James Edward Brucker
+        isAdmin:         false
+        firstLogin:      true
         role:
             !!models.Role
               id: 3

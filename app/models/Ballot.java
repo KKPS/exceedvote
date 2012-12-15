@@ -20,13 +20,17 @@ public class Ballot extends Model {
 	@OneToOne
 	public Criterion criterion;
 	
+	public static Finder<Long, Ballot> find = new Finder<Long, Ballot>(Long.class, Ballot.class);
+	
+	public Ballot() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Ballot(User user, Project project, Criterion criterion) {
 		this.user = user;
 		this.project = project;
 		this.criterion = criterion;
 	}
-	
-	public static Finder<Long, Ballot> find = new Finder<Long, Ballot>(Long.class, Ballot.class);
 	
 	public String toString() {
 		return "";

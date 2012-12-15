@@ -18,8 +18,29 @@ public class Project extends Model {
 	
 	public static Finder<Long, Project> find = new Finder<Long, Project>(Long.class, Project.class);
 	
+	public Project() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Project(String name, String description) {
+		this.name = name;
+		this.description = description;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String toString() {

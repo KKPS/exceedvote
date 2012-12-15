@@ -13,6 +13,16 @@ public class Criterion extends Model {
 	
 	@Constraints.Required
 	public String question;
+
+	public static Finder<Long, Criterion> find = new Finder<Long, Criterion>(Long.class, Criterion.class);
+	
+	public Criterion() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Criterion(String question) {
+		this.question = question;
+	}
 	
 	public String getQuestion() {
 		return question;
@@ -21,8 +31,6 @@ public class Criterion extends Model {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-
-	public static Finder<Long, Criterion> find = new Finder<Long, Criterion>(Long.class, Criterion.class);
 	
 	public String toString() {
 		return "";

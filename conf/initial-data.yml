@@ -6,6 +6,10 @@ users:
         username:        admin
         password:        admin
 
+    - !!models.User
+        username:        b5410545915
+        password:        exceed
+
 projects:
 
     - !!models.Project

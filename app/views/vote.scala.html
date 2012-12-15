@@ -14,12 +14,18 @@
 			<p>@criterion.question</p>
 			<input name="user_username" value="@user.username" type="hidden">
 			<input name="criterion_id" value="@criterion.id" type="hidden">
-			<select name="project_id">
-				@for(project <- projects) {
-					<option value="@project.id">@project.name</option>
-				}
-			</select>
-			<input class="btn btn-primary" type="submit" value="Vote">
+			@if(criterion.ballotRemainder(user)<user.role.getBallot()) {
+				<p>Ballot remainder: @(user.role.getBallot() - criterion.ballotRemainder(user))</p>
+				<select name="project_id">
+					@for(project <- projects) {
+						<option value="@project.id">@project.name</option>
+					}
+				</select>
+				<p><input class="btn btn-primary" type="submit" value="Vote"></p>
+			} else {
+				<p>You already use Ballot for this criterion</p>
+				<p><input class="btn btn-primary" type="submit" value="Vote" disabled="disabled"></p>
+			}
 		}
 	}
 }

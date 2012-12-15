@@ -36,4 +36,14 @@ public class Criterion extends Model {
 		return "";
 	}
 	
+	// Additional logic
+	/**
+	 * Find User's Ballot remainder for this criterion
+	 * @param user
+	 * @return 
+	 */
+	public int ballotRemainder(User user) {
+		return Ballot.find.where().eq("criterion", this).eq("user", user).findList().size();
+	}
+	
 }

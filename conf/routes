@@ -32,6 +32,9 @@ GET     /admin/criterion/:id            controllers.admin.Criteria.criterion(id:
 POST    /admin/criterion/:id            controllers.admin.Criteria.update(id: Long)
 POST    /admin/criterion/:id/delete     controllers.admin.Criteria.delete(id: Long)
 
+# Admin Panel - Role
+GET     /admin/role                     controllers.admin.Roles.index()
+
 # Admin Panel - Ballot
 GET     /admin/ballot                   controllers.admin.Ballots.index()
 

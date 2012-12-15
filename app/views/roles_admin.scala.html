@@ -1,0 +1,11 @@
+@(roles: List[Role], roleForm: Form[Role])
+
+@import helper._
+
+@main("Role") {
+	<h1>Role.scala.html</h1>
+	<h3>List of all Roles</h3>
+	@for(role <- roles) {
+		<p><a href="/admin/role/@role.id">@role.name</a></p>
+	}
+}

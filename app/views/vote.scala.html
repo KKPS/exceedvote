@@ -6,7 +6,7 @@
 	<h1>Vote.scala.html</h1>
 	<p>Logged in as @user.username</p>
 	@form(routes.Application.logout()) {
-		<input type="submit" value="Logout">
+		<input class="btn" type="submit" value="Logout">
 	}
 	<h3>All Questions (Criteria)</h3>
 	@for(criterion <- criteria) {
@@ -14,8 +14,12 @@
 			<p>@criterion.question</p>
 			<input name="user_username" value="@user.username" type="hidden">
 			<input name="criterion_id" value="@criterion.id" type="hidden">
-			<input name="project_id" value="1" type="hidden">
-			<input type="submit" value="Vote">
+			<select name="project_id">
+				@for(project <- projects) {
+					<option value="@project.id">@project.name</option>
+				}
+			</select>
+			<input class="btn btn-primary" type="submit" value="Vote">
 		}
 	}
 }

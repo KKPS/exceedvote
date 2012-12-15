@@ -26,7 +26,7 @@ public class Votes extends Controller {
 		Project project = Project.find.ref(project_id);
 		Criterion criterion = Criterion.find.ref(criterion_id);
 		new Ballot(user, project, criterion).save();
-		return redirect("/ballot");
+		return redirect("/admin/ballot");
 	}
 	
 }

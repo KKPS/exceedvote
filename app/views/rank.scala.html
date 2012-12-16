@@ -1,0 +1,13 @@
+@(user: User, criteria: List[Criterion], projects: List[Project])
+
+@import helper._
+
+@main("Ranking") {
+	<h1>rank.scala.html</h1>
+	@for(criterion <- criteria) {
+		<h3>@criterion.question</h3>
+		@for(project <- projects) {
+			<p>@project.name @project.score(criterion)</p>
+		}
+	}
+}

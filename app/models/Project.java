@@ -47,4 +47,9 @@ public class Project extends Model {
 		return "";
 	}
 	
+	// Additional logic
+	public int score(Criterion criterion) {
+		return Ballot.find.where().eq("project", this).eq("criterion", criterion).findList().size();
+	}
+	
 }

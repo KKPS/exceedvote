@@ -1,11 +1,11 @@
-@(title: String)(sidebar: Html)(content: Html)
+@(request: Request)
 
 <!DOCTYPE html>
 
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>@title</title>
+        <title>ExceedVote | Your Request</title>
         <!-- Include CSS files -->
         <!-- Include '???' from Google Web Fonts -->
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
@@ -20,15 +20,19 @@
     		</div>
     	</div>
     	<div style="margin-bottom: 20px"></div>
-    	<div class="container" style="width: 980px">
-    		<div class="row-fluid">
-    			<div class="span3">
-    				<!-- at sidebar -->
-    				@sidebar
-    			</div>
-    			<div class="span9">
-    				<!-- at content -->
-    				@content
+    	<div class="container" style="width: 720px; margin: auto">
+    		<div class="shadow">
+    			<header class="title">
+    				<h2>Request</h2>
+    			</header>
+    			<div class="btm-border"></div>
+    			<div class="content">
+    				<div class="request-link">
+    					<div class="request-link-inner">
+    					<h4 style="margin: 0">exceedvote.com/request/sonnyhonny</h4>
+    					</div>
+    				</div>
+    				<p>JUBU JUBU</p>
     			</div>
     		</div>
     	</div>

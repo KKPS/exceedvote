@@ -23,6 +23,9 @@ public class User extends Model {
 	@OneToOne
 	public Role role;
 	
+	@OneToOne
+	public Project project;
+	
 	public boolean isAdmin;
 	
 	public boolean firstLogin;
@@ -41,11 +44,12 @@ public class User extends Model {
 		this.firstLogin = true;
 	}
 
-	public User(String username, String password, String name, Role role, boolean isAdmin, boolean firstLogin) {
+	public User(String username, String password, String name, Role role, Project project, boolean isAdmin, boolean firstLogin) {
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.role = role;
+		this.project = project;
 		this.isAdmin = isAdmin;
 		this.firstLogin = firstLogin;
 	}

@@ -42,7 +42,8 @@ public class Users extends Controller {
 		String new_name = requestForm.get("new_name");
 		Long new_role_id = Long.parseLong(requestForm.get("new_role_id"));
 		Role new_role = Role.find.ref(new_role_id);
-		User update_user = new User(new_username, new_password, new_name, new_role, edit_user.isAdmin, edit_user.firstLogin);
+		Project project = null;
+		User update_user = new User(new_username, new_password, new_name, new_role, project, edit_user.isAdmin, edit_user.firstLogin);
 		update_user.update(edit_user.id);
 		if (session("username") == edit_user.username) {
 			session("username", update_user.username);

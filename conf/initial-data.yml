@@ -80,4 +80,18 @@ criteria:
 
     - !!models.Criterion
         id:              3
-        question:         Best UI & UX
+        question:        Best UI & UX
+
+request:
+
+    - !!models.Request
+        id:              1
+        username:        chanonong
+        password:        exceed
+        approve:         false
+
+    - !!models.Request
+        id:              2
+        username:        mario
+        password:        luigi
+        approve:         false

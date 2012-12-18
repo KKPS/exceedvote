@@ -11,6 +11,11 @@ GET     /login                          controllers.Application.login()
 POST    /login                          controllers.Application.authenticate()
 GET     /logout                         controllers.Application.logout()
 
+# Request
+GET     /request                        controllers.Requests.index()
+POST    /request                        controllers.Requests.create()
+GET     /request/:username              controllers.Requests.item(username: String)
+
 # First-Time Login
 GET     /welcome                        controllers.FirstLogin.index()
 GET     /welcome/information            controllers.FirstLogin.information()

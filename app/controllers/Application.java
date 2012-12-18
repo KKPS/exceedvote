@@ -13,7 +13,7 @@ public class Application extends Controller {
 		return TODO;
 	}
 	
-	// Authenticate
+	// Authenticate, Login, and Logout
 	public static class Login {
 		
 		public String username;

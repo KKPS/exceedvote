@@ -24,7 +24,7 @@
 			<h4>Edit @user.username</h4>
 			<input type="text" name="new_username" value="@user.username" style="width: 450px; margin-bottom: 10px"><br>
 			<input type="password" name="new_password" value="@user.password" style="width: 450px; margin-bottom: 10px"><br>
-			<input name="new_name" value="@user.name" type="hidden">
+			<input type="text" name="new_name" value="@user.name" style="width: 450px; margin-bottom: 10px"><br>
 			<input name="new_role_id" value="@user.role.getId()" type="hidden">
 			<input type="submit" value="Save User" class="btn">
 		}

@@ -12,7 +12,8 @@
  -------------------------*/
 
 body {
-	background: #c7cbcc;
+	background: url('../images/ftw_bg.png') repeat-x #adb2b5;
+	padding: 0 0 40px;
 }
 
 .navbar-exceed {
@@ -46,7 +47,7 @@ header.title h2 {
 }
 
 .black-add {
-	background: #303030;
+	background: url('../images/black-add.png') #303030;
 	padding: 10px 20px;
 	color: white;
 }

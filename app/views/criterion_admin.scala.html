@@ -30,7 +30,7 @@
 	</div>
 	<div class="content">
 		<h3 style="margin-top: 5px">@criterion.question</h3>
-		@if(criterion.description == "") {
+		@if(criterion.description == "" || criterion.description == null) {
 		<p>@criterion.question didn't have <em>Description</em>. Edit <a class="add-item">here</a></p>
 		} else {
 		<p>@criterion.description</p>
@@ -46,7 +46,7 @@
 			</tr>
 			@for(ballot <- ballots) {
 			<tr>
-				<td>@ballot.user.username</td>
+				<td>@ballot.user.getUsername()</td>
 				<td>@ballot.project.getName()</td>
 			</tr>
 			}

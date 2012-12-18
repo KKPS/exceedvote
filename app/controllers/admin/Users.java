@@ -44,7 +44,9 @@ public class Users extends Controller {
 		Role new_role = Role.find.ref(new_role_id);
 		User update_user = new User(new_username, new_password, new_name, new_role, edit_user.isAdmin, edit_user.firstLogin);
 		update_user.update(edit_user.id);
-		session("username", update_user.username);
+		if (session("username") == edit_user.username) {
+			session("username", update_user.username);
+		}
 		return ok(views.html.user_admin.render(update_user, update_user.ballotThisUser(), form(User.class)));
 	}
 	

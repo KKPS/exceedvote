@@ -1,0 +1,27 @@
+@(role: Role)
+
+@sidebar = {
+	@views.html.sidebar(true)
+}
+
+@import helper._
+
+@main("ExceedVote | Role | " + role.getName())(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			@role.getName()
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+		<h3 class="margin-top: 5px">@role.getName()</h3>
+		<p>@role.getDescription()</p>
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li class="active">Role</li>
+		</ul>
+	</div>
+	</div>
+}

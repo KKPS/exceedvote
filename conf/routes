@@ -11,6 +11,10 @@ GET     /login                          controllers.Application.login()
 POST    /login                          controllers.Application.authenticate()
 GET     /logout                         controllers.Application.logout()
 
+# First-Time Login
+GET     /welcome                        controllers.FirstLogin.index()
+GET     /welcome/information            controllers.FirstLogin.information()
+
 # Ranking
 GET     /rank                           controllers.Ranks.index()
 
@@ -37,6 +41,7 @@ POST    /admin/criterion/:id/delete     controllers.admin.Criteria.delete(id: Lo
 
 # Admin Panel - Role
 GET     /admin/role                     controllers.admin.Roles.index()
+GET     /admin/role/:id                 controllers.admin.Roles.role(id: Long)
 
 # Admin Panel - Ballot
 GET     /admin/ballot                   controllers.admin.Ballots.index()

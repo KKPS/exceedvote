@@ -25,7 +25,7 @@
 			</tr>
 			@for(ballot <- ballots) {
 			<tr>
-				<td>@ballot.user.username</td>
+				<td>@ballot.user.getUsername()</td>
 				<td>@ballot.project.getName()</td>
 				<td>@ballot.criterion.getQuestion()</td>
 			</tr>

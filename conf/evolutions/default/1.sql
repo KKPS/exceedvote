@@ -28,6 +28,7 @@ create table project (
 create table role (
   id                        bigint auto_increment not null,
   name                      varchar(255),
+  description               varchar(255),
   ballot                    integer,
   constraint pk_role primary key (id))
 ;

@@ -1,0 +1,52 @@
+@(user: User, projects: List[Project])
+
+@sidebar = {
+	@views.html.sidebar(true)
+}
+
+@import helper._
+
+@main("ExceedVote | Welcome! " + user.getUsername())(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			Welcome to ExceedVote by KKPS!
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+		<h3 style="margin-top: 5px">Hello! @(user.getUsername())</h3>
+		<p style="margin-top: 5px">
+			Thank you for using ExceedVote.
+			This is your first-time login to ExceedVote.
+			We need you to fulfill this below information :)
+		</p>
+		<div class="pull-left" style="margin: 0; width: 50%">
+			<label><strong>Username</strong></label>
+			<input type="text" name="username" value="@user.getUsername()" disabled="disabled" style="width: 90%">
+			<span class="help-block">@(user.getUsername()) can't be change.</span>
+			<label><strong>Full Name</strong> (Not require)</label>
+			<input type="text" name="name" placeholder="Full Name" style="width: 90%">
+			<span class="help-block">Your Full name.</span>
+		</div>
+		<div class="pull-right" style="margin: 0; width: 50%">
+			<label><strong>Password</strong></label>
+			<input type="password" name="username" placeholder="Password" style="width: 90%">
+			<span class="help-block">Your new Password.</span>
+			<label><strong>Project</strong></label>
+			<select name="project_id" style="width: 94%">
+				@for(project <- projects) {
+				<option value="@project.id">@project.name</option>
+				}
+			</select>
+			<span class="help-block">Choose Project that's you working on.</span>
+		</div>
+		<p>If your Project doesn't exist, Please contact Administator.</p>
+		<input type="submit" value="Save & Continue" class="btn btn-success">
+		<a href="/welcome/information"><button class="btn">Skip</button></a>
+		<ul class="breadcrumb" style="margin-top: 20px">
+  			<li class="active">Welcome</li>
+		</ul>
+	</div>
+	</div>
+}

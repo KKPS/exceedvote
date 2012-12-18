@@ -1,0 +1,50 @@
+@(user: User)
+
+@sidebar = {
+	@views.html.sidebar(user.isAdmin())
+}
+
+@import helper._
+
+@main("ExceedVote | " + user.getUsername() + "'s Information")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2>Yeah! Let's start using ExceedVote</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+		<h3 style="margin-top: 5px">Your Information</h3>
+		<table class="table table-hover table-bordered">
+			<tr>
+				<td>Username</td>
+				<td>@user.getUsername()</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td>XXXXXXXXX</td>
+			</tr>
+			<tr>
+				<td>Full Name</td>
+				@if(user.getName() == "" || user.getName == null) {
+				<td>-</td>
+				} else {
+				<td>@user.getName()</td>
+				}
+			</tr>
+			<tr>
+				<td>Role</td>
+				<td>@(user.role.getName()) - @(user.role.getBallot()) Ballots/Criterion</td>
+			</tr>
+			<tr>
+				<td>Project</td>
+				<td>WorldNote</td>
+			</tr>
+		</table>
+		<h3>Now, It's time to VOTE!</h3>
+		<ul class="breadcrumb">
+  			<li><a href="/welcome">Welcome</a> <span class="divider">/</span></li>
+  			<li class="active">Information</li>
+		</ul>
+	</div>
+	</div>
+}

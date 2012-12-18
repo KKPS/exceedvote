@@ -39,7 +39,13 @@ public class Application extends Controller {
 		}
 		else {
 			session("username", loginForm.get().username);
-			return redirect(routes.Votes.index());
+			User user = User.find.where().eq("username", session("username")).findUnique();
+			if (user.firstLogin == true) {
+				return redirect(routes.FirstLogin.index());
+			}
+			else {
+				return redirect(routes.Votes.index());
+			}
 		}
 	}
 	

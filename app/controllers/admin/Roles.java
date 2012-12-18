@@ -12,7 +12,11 @@ import views.html.*;
 public class Roles extends Controller {
 	
 	public static Result index() {
-		return ok(views.html.roles_admin.render(Role.find.all(), form(Role.class)));
+		return ok(views.html.roles_admin.render(Role.find.all()));
+	}
+	
+	public static Result role(Long id) {
+		return ok(views.html.role_admin.render(Role.find.ref(id)));
 	}
 
 }

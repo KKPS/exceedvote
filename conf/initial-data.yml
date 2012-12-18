@@ -3,16 +3,19 @@ role:
     - !!models.Role
         id:              1
         name:            Student
+        description:     CPE and SKE students
         ballot:          1
 
     - !!models.Role
         id:              2
         name:            Guest
+        description:     Guests from Faculty of Engineering
         ballot:          3
 
     - !!models.Role
         id:              3
         name:            Teacher
+        description:     CPE and SKE teachers
         ballot:          5
 
 users:

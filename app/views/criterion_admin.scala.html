@@ -1,17 +1,64 @@
-@(criterion: Criterion, criterionForm: Form[Criterion])
+@(criterion: Criterion, ballots: List[Ballot], criterionForm: Form[Criterion])
+
+@sidebar = {
+	@views.html.sidebar(true)
+}
 
 @import helper._
 
 @if(criterion==null) {
-	@main("Not found") {
-		<p>Not found!</p>
+	@main("ExceedVote | Not found")(sidebar) {
+	<p>Not found!</p>
 	}
 } else {
-	@main(criterion.question) {
-		<h1>@criterion.question</h1>
-		@form(admin.routes.Criteria.update(criterion.id)) {
-			@inputText(criterionForm("question"))
-			<input class="btn btn-primary" type="submit" value="Save">
+	@main("ExceedVote | " + criterion.question)(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			@criterion.question
+			<button class="btn btn-warning pull-right add-item" style="margin-top: 4px">Edit Criterion</button>
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="black-add" style="display: none">
+	@form(admin.routes.Criteria.update(criterion.id)) {
+	<h4>Edit @criterion.question</h4>
+	<input type="text" name="question" value="@criterion.question" style="width: 450px; margin-bottom: 10px"><br>
+	<textarea name="description" rows="3" style="width: 450px; margin-bottom: 10px">@criterion.description</textarea><br>
+	<input class="btn" type="submit" value="Save">
+	}
+	</div>
+	<div class="content">
+		<h3 style="margin-top: 5px">@criterion.question</h3>
+		@if(criterion.description == "") {
+		<p>@criterion.question didn't have <em>Description</em>. Edit <a class="add-item">here</a></p>
+		} else {
+		<p>@criterion.description</p>
 		}
+		<h3>All @(criterion.question)'s Ballots</h3>
+		@if(ballots.isEmpty) {
+		<p>No Ballot in @criterion.question</p>
+		} else {
+		<table class="table table-hover table-condensed table-bordered">
+			<tr style="background-color: #fafafa">
+				<th>User</th>
+				<th>Project</th>
+			</tr>
+			@for(ballot <- ballots) {
+			<tr>
+				<td>@ballot.user.username</td>
+				<td>@ballot.project.getName()</td>
+			</tr>
+			}
+		</table>
+		}
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li><a href="/admin/criterion">Criterion</a> <span class="divider">/</span></li>
+  			<li class="active">@criterion.question</li>
+		</ul>
+	</div>
+	</div>
 	}
 }

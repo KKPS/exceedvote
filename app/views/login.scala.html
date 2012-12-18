@@ -1,8 +1,12 @@
 @(loginForm: Form[Application.Login])
 
+@sidebar = {
+	@views.html.sidebar(true)
+}
+
 @import helper._
 
-@main("Login") {
+@main("Login")(sidebar) {
 	<h1>login.scala.html</h1>
 	@helper.form(routes.Application.authenticate) {
 		@if(loginForm.hasGlobalErrors) {

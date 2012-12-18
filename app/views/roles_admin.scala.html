@@ -1,11 +1,29 @@
 @(roles: List[Role], roleForm: Form[Role])
 
+@sidebar = {
+	@views.html.sidebar(true)
+}
+
 @import helper._
 
-@main("Role") {
-	<h1>Role.scala.html</h1>
-	<h3>List of all Roles</h3>
-	@for(role <- roles) {
+@main("ExceedVote | Role")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			Role
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+		<h3 style="margin-top: 5px">All Role</h3>
+		@for(role <- roles) {
 		<p><a href="/admin/role/@role.id">@role.name</a></p>
-	}
+		}
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li class="active">Role</li>
+		</ul>
+	</div>
+	</div>
 }

@@ -68,8 +68,13 @@ criteria:
 
     - !!models.Criterion
         id:              1
-        question:        Popular Vote
+        question:        Exceed Award
+        description:     Exceed Award is the biggest award in Exceed Camp 10th...
 
     - !!models.Criterion
         id:              2
-        question:        Best UI & UX
+        question:        Popular Vote
+
+    - !!models.Criterion
+        id:              3
+        question:         Best UI & UX

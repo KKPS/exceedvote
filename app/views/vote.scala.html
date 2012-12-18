@@ -1,8 +1,12 @@
 @(user: User, criteria: List[Criterion], projects: List[Project], voteForm: Form[Ballot])
 
+@sidebar = {
+	@views.html.sidebar(user.isAdmin())
+}
+
 @import helper._
 
-@main("Vote") {
+@main("Vote")(sidebar) {
 	<h1>Vote.scala.html</h1>
 	<p>Logged in as @user.username</p>
 	@form(routes.Application.logout()) {
@@ -12,10 +16,10 @@
 	@for(criterion <- criteria) {
 		@helper.form(routes.Votes.vote()) {
 			<p>@criterion.question</p>
-			<input name="user_username" value="@user.username" type="hidden">
+			<input name="user_id" value="@user.id" type="hidden">
 			<input name="criterion_id" value="@criterion.id" type="hidden">
-			@if(criterion.ballotRemainder(user)<user.role.getBallot()) {
-				<p>Ballot remainder: @(user.role.getBallot() - criterion.ballotRemainder(user))</p>
+			@if(criterion.ballotUsage(user) < user.role.getBallot()) {
+				<p>Ballot remainder: @(user.role.getBallot() - criterion.ballotUsage(user))</p>
 				<select name="project_id">
 					@for(project <- projects) {
 						<option value="@project.id">@project.name</option>

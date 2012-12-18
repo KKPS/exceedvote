@@ -1,18 +1,61 @@
-@(user: User, userForm: Form[User])
+@(user: User, ballots: List[Ballot], userForm: Form[User])
+
+@sidebar = {
+	@views.html.sidebar(true)
+}
 
 @import helper._
 
 @if(user==null) {
-	@main("Not found") {
-		<p>Not found!</p>
+	@main("ExceedVote | Not found")(sidebar) {
+	<p>Not found!</p>
 	}
 } else {
-	@main(user.username) {
-		<h1>@user.username</h1>
+	@main("ExceedVote | User | " + user.username)(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			@user.username
+			<button class="btn btn-warning pull-right add-item" style="margin-top: 4px">Edit User</button>
+		</h2>
+	</header>
+	<div class="black-add" style="display: none">
 		@form(admin.routes.Users.update(user.username)) {
-			@inputText(userForm("username"))
-			@inputPassword(userForm("password"))
-			<input type="submit" value="Save User">
+			<h4>Edit @user.username</h4>
+			<input type="text" name="new_username" value="@user.username" style="width: 450px; margin-bottom: 10px"><br>
+			<input type="password" name="new_password" value="@user.password" style="width: 450px; margin-bottom: 10px"><br>
+			<input name="new_name" value="@user.name" type="hidden">
+			<input name="new_role_id" value="@user.role.getId()" type="hidden">
+			<input type="submit" value="Save User" class="btn">
 		}
+	</div>
+	<div class="content">
+		<h3 style="margin-top: 5px">@user.username</h3>
+		<!-- TODO User Description -->
+		<h3>All @(user.username)'s Ballots</h3>
+		@if(ballots.isEmpty) {
+		<p>No Ballot by @user.username</p>
+		} else {
+		<table class="table table-hover table-condensed table-bordered">
+			<tr style="background-color: #fafafa">
+				<th>Criterion</th>
+				<th>Project</th>
+			</tr>
+			@for(ballot <- ballots) {
+			<tr>
+				<td>@ballot.criterion.getQuestion()</td>
+				<td>@ballot.project.getName()</td>
+			</tr>
+			}
+		</table>
+		}
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li><a href="/admin/user">User</a> <span class="divider">/</span></li>
+  			<li class="active">@user.username</li>
+		</ul>
+	</div>
+	</div>
 	}
 }

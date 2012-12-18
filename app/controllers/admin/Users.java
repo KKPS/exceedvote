@@ -21,7 +21,7 @@ public class Users extends Controller {
 		if (user != null) {
 			editForm = editForm.fill(user);
 		}
-		return ok(views.html.user_admin.render(user, editForm));
+		return ok(views.html.user_admin.render(user, user.ballotThisUser(), editForm));
 	}
 	
 	public static Result create() {
@@ -34,17 +34,22 @@ public class Users extends Controller {
 		return ok(views.html.users_admin.render(User.find.all(), Role.find.all(), form(User.class)));
 	}
 	
-	// BUGGGG
 	public static Result update(String username) {
-		User user = User.find.ref(username);
-		Form<User> updateForm = form(User.class).bindFromRequest();
-		User updated = updateForm.get();
-		updated.update(user.username);
-		return ok(views.html.user_admin.render(updated, updateForm));
+		User edit_user = User.find.where().eq("username", username).findUnique();
+		DynamicForm requestForm = form().bindFromRequest();
+		String new_username = requestForm.get("new_username");
+		String new_password = requestForm.get("new_password");
+		String new_name = requestForm.get("new_name");
+		Long new_role_id = Long.parseLong(requestForm.get("new_role_id"));
+		Role new_role = Role.find.ref(new_role_id);
+		User update_user = new User(new_username, new_password, new_name, new_role, edit_user.isAdmin, edit_user.firstLogin);
+		update_user.update(edit_user.id);
+		session("username", update_user.username);
+		return ok(views.html.user_admin.render(update_user, update_user.ballotThisUser(), form(User.class)));
 	}
 	
 	public static Result delete(String username) {
-		User user = User.find.ref(username);
+		User user = User.find.where().eq("username", username).findUnique();
 		user.delete();
 		return ok(views.html.users_admin.render(User.find.all(), Role.find.all(), form(User.class)));
 	}

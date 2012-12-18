@@ -1,29 +1,83 @@
-/* Artfully masterminded by ZURB  */
+/*--------------------------
+ app.css
+ @author Kanokphol Techarattanaprasert 5410545915
+ Additional Stylesheet for ExceedVote Application
+ 	- Base on Twitter Bootstrap Elements
+ 	- Inspire by FTW Inc.
+ selector {
+ 	- Properties
+ 	- Box-Model
+ 	- etc.
+ }
+ -------------------------*/
 
-/* -------------------------------------------------- 
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
+body {
+	background: #c7cbcc;
+}
 
+.navbar-exceed {
+}
 
-/* -----------------------------------------
-   Shared Styles
------------------------------------------ */
+.navbar-inner {
+	background: white;
+	border-width: 0px;
+	height: 50px;
+	min-height: 50px;
+}
 
+.navbar-static-top .navbar-inner {
+	border-width: 0;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
 
+header.title {
+	background: #fafafa;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding: 10px 20px;
+}
 
-/* -----------------------------------------
-   Page Name 1
------------------------------------------ */
+header.title h2 {
+	margin: 0;
+}
 
+.btm-border {
+	border-bottom: 1px #f2f2f2 solid;
+}
 
+.black-add {
+	background: #303030;
+	padding: 10px 20px;
+	color: white;
+}
 
+.black-add input {
+	margin-bottom: 0px;
+}
 
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ */
+.shadow {
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
 
+.content {
+	background: white;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 5px 20px;
+}
 
+.content .breadcrumb {
+	background: white;
+	padding: 0;
+	margin: 0 0 15px 0;
+}
+
+/* Criterion */
+.criterion {
+	background: whiteSmoke;
+	border-radius: 4px;
+	padding: 5px 10px;
+	margin-bottom: 20px;
+}
+}

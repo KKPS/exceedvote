@@ -21,7 +21,7 @@ public class Criteria extends Controller {
 		if (criterion != null) {
 			editForm = editForm.fill(criterion);
 		}
-		return ok(views.html.criterion_admin.render(criterion, editForm));
+		return ok(views.html.criterion_admin.render(criterion, criterion.ballotThisCriterion(), editForm));
 	}
 	
 	public static Result create() {
@@ -35,7 +35,7 @@ public class Criteria extends Controller {
 		Form<Criterion> updateForm = form(Criterion.class).bindFromRequest();
 		Criterion updated = updateForm.get();
 		updated.update(criterion.id);
-		return ok(views.html.criterion_admin.render(updated, updateForm));
+		return ok(views.html.criterion_admin.render(updated, updated.ballotThisCriterion(), updateForm));
 	}
 	
 	public static Result delete(Long id) {

@@ -1,8 +1,12 @@
 @(user: User, criteria: List[Criterion], projects: List[Project])
 
+@sidebar = {
+	@views.html.sidebar(user.isAdmin)
+}
+
 @import helper._
 
-@main("Ranking") {
+@main("Ranking")(sidebar) {
 	<h1>rank.scala.html</h1>
 	@for(criterion <- criteria) {
 		<h3>@criterion.question</h3>

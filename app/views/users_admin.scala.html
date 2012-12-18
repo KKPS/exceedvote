@@ -1,11 +1,24 @@
 @(users: List[User], roles: List[Role], userForm: Form[User])
 
+@sidebar = {
+	@views.html.sidebar(true)
+}
+
 @import helper._
 
-@main("Users") {
-	<h1>Users.scala.html</h1>
-	<h3>Add a new User</h3>
-	@form(admin.routes.Users.create()) {
+@main("ExceedVote | User")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			User
+			<button class="btn btn-warning pull-right add-item" style="margin-top: 4px">Add User</button>
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="black-add" style="display: none">
+		<h4>Add New User</h4>
+		<p>User...</p>
+		@form(admin.routes.Users.create()) {
 		<p>Username: <input type="text" name="username"></p>
 		<p>Password: <input type="text" name="password"></p>
 		<p>Role:</p>
@@ -14,27 +27,39 @@
 			<option value="@role.id">@role.name</option>
 		}
 		</select>
-		<p><input class="btn btn-primary" type="submit" value="Save User"></p>
-	}
-	<h3>List of all Users</h3>
-	<table class="table table-bordered">
-		<tr>
-			<th>Username</th>
-			<th>Full Name</th>
-			<th>Role</th>
-			<th>Admin</th>
-		</tr>
-		@for(user <- users) {
+		<p><input class="btn" type="submit" value="Save User"></p>
+		}
+	</div>
+	<div class="content">
+		<h3 style="margin-top: 5px">
+			All User
+			<span class="badge" style="margin-top: -3px; vertical-align: middle">@users.size()</span>
+		</h3>
+		<table class="table table-hover table-bordered">
+			<tr style="background-color: #fafafa">
+				<th>Username</th>
+				<th>Full Name</th>
+				<th>Role</th>
+				<th>Admin</th>
+			</tr>
+			@for(user <- users) {
 			<tr>
 				<td><a href="/admin/user/@user.username">@user.username</a></td>
 				<td>@user.name</td>
 				<td>@user.role.getName()</td>
 				@if(user.isAdmin==true) {
-					<td>Yes</td>
+				<td>Yes</td>
 				} else {
-					<td>No</td>
+				<td>No</td>
 				}
 			</tr>
-		}
-	</table>
+			}
+		</table>
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li class="active">User</li>
+		</ul>
+	</div>
+	</div>
 }

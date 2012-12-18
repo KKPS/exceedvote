@@ -1,5 +1,6 @@
 package models;
 
+import java.util.*;
 import javax.persistence.*;
 
 import play.db.ebean.*;
@@ -9,6 +10,8 @@ import play.data.validation.*;
 public class User extends Model {
 
 	@Id
+	public Long id;
+	
 	@Constraints.Required
 	public String username;
 	
@@ -24,7 +27,7 @@ public class User extends Model {
 	
 	public boolean firstLogin;
 	
-	public static Finder<String, User> find = new Finder<String, User>(String.class, User.class);
+	public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
 	
 	public User() {
 		// TODO Auto-generated constructor stub
@@ -37,7 +40,16 @@ public class User extends Model {
 		this.isAdmin = false;
 		this.firstLogin = true;
 	}
-	
+
+	public User(String username, String password, String name, Role role, boolean isAdmin, boolean firstLogin) {
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.role = role;
+		this.isAdmin = isAdmin;
+		this.firstLogin = firstLogin;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -70,8 +82,25 @@ public class User extends Model {
 		this.isAdmin = isAdmin;
 	}
 
+	public boolean isFirstLogin() {
+		return firstLogin;
+	}
+
+	public void setFirstLogin(boolean firstLogin) {
+		this.firstLogin = firstLogin;
+	}
+
 	public String toString() {
 		return "";
+	}
+	
+	// Additional logic
+	/**
+	 * Find all Ballot send by this User
+	 * @return
+	 */
+	public List<Ballot> ballotThisUser() {
+		return Ballot.find.where().eq("user", this).findList();
 	}
 	
 }

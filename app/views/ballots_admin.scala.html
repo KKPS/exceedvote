@@ -1,21 +1,41 @@
 @(ballots: List[Ballot])
 
+@sidebar = {
+	@views.html.sidebar(true)
+}
+
 @import helper._
 
-@main("Ballots") {
-	<h1>All Ballots</h1>
-	<table class="table table-bordered">
-		<tr>
-			<th>User</th>
-			<th>Project</th>
-			<th>Question</th>
-		</tr>
-		@for(ballot <- ballots) {
+@main("ExceedVote | Ballots")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">Ballot</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+	<h3 style="margin-top: 5px">
+		All Ballot
+		<span class="badge" style="margin-top: -3px; vertical-align: middle">@ballots.size()</span>
+	</h3>
+		<table class="table table-hover table-condensed table-bordered">
+			<tr style="background-color: #fafafa">
+				<th>User</th>
+				<th>Project</th>
+				<th>Question</th>
+			</tr>
+			@for(ballot <- ballots) {
 			<tr>
 				<td>@ballot.user.username</td>
 				<td>@ballot.project.getName()</td>
 				<td>@ballot.criterion.getQuestion()</td>
 			</tr>
-		}
-	</table>
+			}
+		</table>
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li class="active">Ballot</li>
+		</ul>
+	</div>
+	</div>
 }

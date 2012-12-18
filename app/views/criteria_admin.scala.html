@@ -1,23 +1,50 @@
 @(criteria: List[Criterion], criterionForm: Form[Criterion])
 
+@sidebar = {
+	@views.html.sidebar(true)
+}
+
 @import helper._
 
-@main("Criteria") {
-	<h1>criteria.scala.html</h1>
-	<h3>Add a new Criterion</h3>
-	@form(admin.routes.Criteria.create()) {
-		<input type="text" name="question">
-		<input class="btn btn-primary" type="submit" value="Save Criterion">
+@main("ExceedVote | Criteria")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			Criteria
+			<button class="btn btn-warning pull-right add-item" style="margin-top: 4px">Add Criterion</button>
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="black-add" style="display: none">
+		<h4>Add New Criterion</h4>
+		<p>Criterion...</p>
+		@form(admin.routes.Criteria.create()) {
+		<input type="text" name="question" placeholder="Criterion" style="width: 450px">
+		<input class="btn" type="submit" value="Save Criterion">
 	}
-	<h3>List of all Criteria</h3>
-	@if(criteria.isEmpty()) {
+	</div>
+	<div class="content">
+		<h3 style="margin-top: 5px">
+			All Criterion
+			<span class="badge" style="margin-top: -3px; vertical-align: middle">@criteria.size()</span>
+		</h3>
+		@if(criteria.isEmpty()) {
 		<p>No criterion now</p>
-	} else {
+		} else {
 		@for(criterion <- criteria) {
-			<p><a href="/admin/criterion/@criterion.id">@criterion.question</a></p>
-			@form(admin.routes.Criteria.delete(criterion.id)) {
-				<input class="btn btn-danger" type="submit" value="Delete">
-			}
+		<div class="criterion">
+		<h4><a href="/admin/criterion/@criterion.id">@criterion.question</a></h4>
+		@form(admin.routes.Criteria.delete(criterion.id)) {
+		<input class="btn btn-danger" type="submit" value="Delete">
+		</div>
 		}
-	}
+		}
+		}
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li class="active">Criterion</li>
+		</ul>
+	</div>
+	</div>
 }

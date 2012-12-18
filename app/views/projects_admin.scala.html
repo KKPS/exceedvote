@@ -1,25 +1,50 @@
 @(projects: List[Project], projectForm: Form[Project])
 
+@sidebar = {
+	@views.html.sidebar(true)
+}
+
 @import helper._
 
-@main("Project") {
-	<h1>Project.scala.html</h1>
-	<h3>Add a new Project</h3>
+@main("ExceedVote | Project")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			Project
+			<button class="btn btn-warning pull-right add-item" style="margin-top: 4px">Add Project</button>
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="black-add" style="display: none">
+	<h4>Add a new Project</h4>
+	<p>Project...</p>
 	@form(admin.routes.Projects.create()) {
-		@inputText(projectForm("name"))
-		@textarea(projectForm("description"))
-		<input type="submit" value="Save Project">
+		<input type="text" name="name" placeholder="Project Name" style="width: 450px; margin-bottom: 10px"><br>
+		<textarea name="description" rows="3" placeholder="Project Description" style="width: 450px; margin-bottom: 10px"></textarea><br>
+		<input type="submit" value="Save Project" class="btn">
 	}
-	<h3>List of all Projects</h3>
-	@if(projects.isEmpty()) {
+	</div>
+	<div class="content">
+		<h3 style="margin-top: 5px">
+			All Project
+			<span class="badge" style="margin-top: -3px; vertical-align: middle">@projects.size()</span>
+		</h3>
+		@if(projects.isEmpty()) {
 		<p>No project now</p>
-	} else {
+		} else {
 		@for(project <- projects) {
-			<p><a href="/admin/project/@project.name">@project.name</a></p>
-			<p>@project.description</p>
-			@form(admin.routes.Projects.delete(project.name)) {
-				<input type="submit" value="Delete">
-			}
+		<p><a href="/admin/project/@project.name">@project.name</a></p>
+		<p>@project.description</p>
+		@form(admin.routes.Projects.delete(project.name)) {
+		<input type="submit" value="Delete">
 		}
-	}
+		}
+		}
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li class="active">Project</li>
+		</ul>
+	</div>
+	</div>
 }

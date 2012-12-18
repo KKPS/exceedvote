@@ -1,0 +1,18 @@
+@(isAdmin: Boolean)
+
+@if(isAdmin==true) {
+					<p><a href="/">Dashboard</a></p>
+					<p><a href="/admin/project">Project</a></p>
+					<p><a href="/admin/criterion">Criterion</a></p>
+					<p><a href="/admin/role">Role</a></p>
+					<p><a href="/admin/user">User</a></p>
+					<p><a href="/admin/ballot">Ballot</a></p>
+					<p><a href="/rank">Ranking</a></p>
+} else {
+					<p><a href="/">Dashboard</a></p>
+					<p><a href="/project">All Projects</a></p>
+					<p><a href="/ballot">Your Ballots</a></p>
+					<p><a href="/project/edit">Edit Your Project</a></p>
+					<p><a href="/setting">Setting</a></p>
+					<p><a href="/rank">Ranking</a></p>
+}

@@ -1,10 +1,9 @@
-package controllers.admin;
+package controllers;
 
 import play.*;
 import play.data.*;
 import play.mvc.*;
 
-import controllers.*;
 import models.*;
 import views.html.*;
 
@@ -13,12 +12,7 @@ public class Ballots extends Controller {
 	
 	public static Result index() {
 		User user = User.find.where().eq("username", request().username()).findUnique();
-		if (user.isAdmin) {
-			return ok(views.html.ballots_admin.render(user, Ballot.find.all()));
-		}
-		else {
-			return redirect("/");
-		}
+		return ok(views.html.ballots.render(user, user.ballotThisUser()));
 	}
 	
 }

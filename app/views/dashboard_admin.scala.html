@@ -4,18 +4,20 @@
 	@views.html.sidebar(user)
 }
 
-@import helper._
-
-@main("ExceedVote | Setting")(sidebar) {
+@main("ExceedVote | Admin Panel")(sidebar) {
 	<div class="shadow">
 	<header class="title">
 		<h2 style="position: relative">
-			Setting
+			Admin Panel
 		</h2>
 	</header>
 	<div class="btm-border"></div>
 	<div class="content">
-		<h3 style="margin-top: 5px">Your Setting</h3>
+	
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li class="active">Admin Panel</li>
+		</ul>
 	</div>
 	</div>
 }

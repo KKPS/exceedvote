@@ -18,10 +18,24 @@ GET     /request/:username              controllers.Requests.item(username: Stri
 
 # First-Time Login
 GET     /welcome                        controllers.FirstLogin.index()
+POST    /welcome                        controllers.FirstLogin.update()
 GET     /welcome/information            controllers.FirstLogin.information()
 
 # Ranking
 GET     /rank                           controllers.Ranks.index()
+
+# User - Project
+GET     /project                        controllers.Projects.index()
+GET     /project/:name                  controllers.Projects.project(name: String)
+
+# User - Ballot
+GET     /ballot                         controllers.Ballots.index()
+
+# User - Setting
+GET     /setting                        controllers.Settings.index()
+
+# Admin Panel - Dashboard
+GET     /admin                          controllers.admin.Dashboard.index()
 
 # Admin Panel - User
 GET     /admin/user                     controllers.admin.Users.index()
@@ -29,6 +43,10 @@ POST    /admin/user                     controllers.admin.Users.create()
 GET     /admin/user/:username           controllers.admin.Users.user(username: String)
 POST    /admin/user/:username           controllers.admin.Users.update(username: String)
 POST    /admin/user/:username/delete    controllers.admin.Users.delete(username: String)
+
+# Admin Panel - Request
+GET     /admin/request                  controllers.admin.Requests.index()
+POST    /admin/request                  controllers.admin.Requests.create()
 
 # Admin Panel - Project
 GET     /admin/project                  controllers.admin.Projects.index()

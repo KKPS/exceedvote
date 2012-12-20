@@ -88,10 +88,16 @@ request:
         id:              1
         username:        chanonong
         password:        exceed
+        role:
+            !!models.Role
+              id: 1
         approve:         false
 
     - !!models.Request
         id:              2
         username:        mario
         password:        luigi
+        role:
+            !!models.Role
+              id: 3
         approve:         false

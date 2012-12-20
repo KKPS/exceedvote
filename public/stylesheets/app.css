@@ -1,9 +1,9 @@
 /*--------------------------
  app.css
- @author Kanokphol Techarattanaprasert 5410545915
+ @author Kanokphol Techarattanaprasert 5410545915 (@sonnyhonny)
  Additional Stylesheet for ExceedVote Application
  	- Base on Twitter Bootstrap Elements
- 	- Inspire by FTW Inc.
+ 	- Inspire by FTW Inc's Website.
  selector {
  	- Properties
  	- Box-Model
@@ -11,9 +11,21 @@
  }
  -------------------------*/
 
+html {
+	height: 100%;
+}
+
 body {
 	background: url('../images/ftw_bg.png') repeat-x #adb2b5;
-	padding: 0 0 40px;
+	height: 100%;
+	padding: 0;
+}
+
+.white-30 {
+	background: url('../images/white-30.png');
+	width: 1020px;
+	min-height: 100%;
+	margin: auto;
 }
 
 .navbar-exceed {
@@ -70,6 +82,11 @@ header.title h2 {
 	padding: 5px 20px;
 }
 
+.content-divider {
+	border-bottom: 1px #f2f2f2 solid;
+	margin: 10px 0;
+}
+
 .content .breadcrumb {
 	background: white;
 	padding: 0;
@@ -119,4 +136,68 @@ header.title h2 {
 	padding: 10px 15px;
 	width: 600px;
 	margin: 20px auto;
+}
+
+/* Sidebar */
+.sidebar {
+	/* background: #3a3a3a; */
+	background: url("../images/dark_wall.png");
+	color: white;
+}
+
+ul.sidebar-nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.sidebar-nav .user-detail {
+	padding: 20px 20px 10px 20px;
+}
+
+ul.sidebar-nav > li {
+	list-style: none;
+}
+
+ul.sidebar-nav > li:last-child {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+ul.sidebar-nav > li > a {
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+	display: block;
+	padding: 13px 20px;
+}
+
+ul.sidebar-nav > li > a:hover {
+	color: #68c9ed;
+	background: black;
+}
+
+ul.sidebar-nav > li > a:active {
+	color: #68c9ed;
+	background: black;
+}
+
+ul.sidebar-nav > li:last-child > a:hover {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background: black;
+}
+
+ul.sidebar-nav > li > a > i {
+	font-size: 16px;
+	margin-top: 2px;
+	margin-right: 5px;	
+}
+
+/* Footer */
+.footer {
+	background: white;
+	border-radius: 5px;
+	margin-top: 20px;
+	padding: 5px 20px;
 }

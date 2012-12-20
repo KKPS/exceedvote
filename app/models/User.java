@@ -78,6 +78,22 @@ public class User extends Model {
 		this.name = name;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
 	public boolean isAdmin() {
 		return isAdmin;
 	}

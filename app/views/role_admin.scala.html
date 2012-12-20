@@ -1,7 +1,7 @@
-@(role: Role)
+@(user: User, role: Role)
 
 @sidebar = {
-	@views.html.sidebar(true)
+	@views.html.sidebar(user)
 }
 
 @import helper._

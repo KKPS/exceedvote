@@ -6,17 +6,16 @@
 
 @import helper._
 
-@main("ExceedVote | Ballots")(sidebar) {
+@main("ExceedVote | Ballot")(sidebar) {
 	<div class="shadow">
 	<header class="title">
-		<h2 style="position: relative">Ballot</h2>
+		<h2 style="position: relative">
+			Ballot
+		</h2>
 	</header>
 	<div class="btm-border"></div>
 	<div class="content">
-	<h3 style="margin-top: 5px">
-		All Ballot
-		<span class="badge" style="margin-top: -3px; vertical-align: middle">@ballots.size()</span>
-	</h3>
+		<h3 style="margin-top: 5px">Your Ballots</h3>
 		<table class="table table-hover table-condensed table-bordered">
 			<tr style="background-color: #fafafa">
 				<th>User</th>
@@ -31,11 +30,6 @@
 			</tr>
 			}
 		</table>
-		<ul class="breadcrumb">
-  			<li><a href="/">Home</a> <span class="divider">/</span></li>
-  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
-  			<li class="active">Ballot</li>
-		</ul>
 	</div>
 	</div>
 }

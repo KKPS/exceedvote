@@ -1,5 +1,7 @@
 @(title: String)(sidebar: Html)(content: Html)
 
+@import helper._
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -7,20 +9,25 @@
         <meta charset="utf-8">
         <title>@title</title>
         <!-- Include CSS files -->
-        <!-- Include '???' from Google Web Fonts -->
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/font-awesome.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app.css")">
+        <!-- Include 'League Gothic' from Adobe Web Fonts -->
+        <script src="http://use.edgefonts.net/league-gothic.js"></script>
     </head>
     <body>
     	<div class="navbar navbar-exceed navbar-static-top">
     		<div class="navbar-inner">
-    		<div class="container">
-    			<a class="brand" href="#">ExceedVote</a>
+    		<div class="container" style="width: 1020px; margin-top: 4px">
+    			<a class="brand" href="/">ExceedVote by KKPS (BETA)</a>
+    			@form(routes.Application.logout()) {
+    			<button class="btn pull-right" type="submit"><i class="icon-off" style="margin-right: 5px"></i> Log Out</button>
+    			}
     		</div>
     		</div>
     	</div>
-    	<div style="margin-bottom: 20px"></div>
-    	<div class="container" style="width: 980px">
+    	<div class="white-30" style="padding-top: 21px">
+    	<div class="container" style="width: 980px; height: 100%;">
     		<div class="row-fluid">
     			<div class="span3">
     				<!-- at sidebar -->
@@ -31,6 +38,7 @@
     				@content
     			</div>
     		</div>
+    	</div>
     	</div>
     	<!-- Include JavaScript files -->
     	<script src="@routes.Assets.at("javascripts/jquery-1.8.3.min.js")" type="text/javascript"></script>

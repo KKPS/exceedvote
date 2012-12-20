@@ -1,0 +1,32 @@
+@(user: User, user_project: Project, projects: List[Project])
+
+@sidebar = {
+	@views.html.sidebar(user)
+}
+
+@import helper._
+
+@main("ExceedVote | Project")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			Project
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+		<h3 style="margin-top: 5px">Your Project</h3>
+		@if(user_project == null) {
+			<p>You didn't setup your Project yet. You can setup <a href="/setting">here</a></p>
+		} else {
+		<h4><a href="/project/@user_project.getName()">@user_project.getName()</a></h4>
+		<p>@user_project.getDescription()</p>
+		}
+		<h3>All Project in Exceed Camp</h3>
+		@for(project <- projects) {
+			<h4><a href="/project/@project.getName()">@project.getName()</a></h4>
+			<p>@project.getDescription()</p>
+		}
+	</div>
+	</div>
+}

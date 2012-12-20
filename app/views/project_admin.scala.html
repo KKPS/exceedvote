@@ -1,7 +1,7 @@
-@(project: Project, projectForm: Form[Project])
+@(user: User, project: Project)
 
 @sidebar = {
-	@views.html.sidebar(true)
+	@views.html.sidebar(user)
 }
 
 @import helper._

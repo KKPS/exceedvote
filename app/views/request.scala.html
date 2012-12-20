@@ -1,0 +1,67 @@
+@(roles: List[Role])
+
+@import helper._
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ExceedVote | Sign Up Request</title>
+        <!-- Include CSS files -->
+        <!-- Include '???' from Google Web Fonts -->
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/font-awesome.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app.css")">
+    </head>
+    <body>
+    	<div class="navbar navbar-exceed navbar-static-top">
+    		<div class="navbar-inner">
+    		<div class="container" style="width: 1020px; margin-top: 4px">
+    			<a class="brand" href="#">ExceedVote by KKPS (BETA)</a>
+    			<a href="/login"><button class="btn pull-right"><i class="icon-signin" style="margin-right: 5px"></i> Log In</button></a>
+    		</div>
+    		</div>
+    	</div>
+    	<div style="margin-bottom: 20px"></div>
+    	<div class="container" style="width: 650px; margin: auto">
+    		<div class="shadow">
+    			<header class="title">
+    				<h2>Sign Up Request</h2>
+    			</header>
+    			<div class="btm-border"></div>
+    			<div class="content">
+    				<h3 style="margin-top: 5px">Sign Up</h3>
+    				@form(routes.Requests.create()) {
+    				<div class="pull-left" style="margin: 0; width: 50%">
+						<label><strong>Username</strong></label>
+						<input type="text" name="username" style="width: 90%">
+						<span class="help-block">Your Username this can't be change later.</span>
+						<label><strong>Role</strong></label>
+						<select name="role_id" style="width: 94%">
+							@for(role <- roles) {
+							<option value="@role.id">@role.getName()</option>
+							}
+						</select>
+						<span class="help-block">What can defines you?</span>
+					</div>
+					<div class="pull-right" style="margin: 0; width: 50%">
+						<label><strong>Password</strong></label>
+						<input type="password" name="password" placeholder="Password" style="width: 90%">
+						<span class="help-block">Your Password.</span>
+					</div>
+					<div style="clear: both;"></div>
+					<input type="submit" value="Sign Up" class="btn btn-primary" style="margin-bottom: 20px">
+					}
+    				<ul class="breadcrumb">
+  						<li class="active">Sign-Up</li>
+					</ul>
+    			</div>
+    		</div>
+    	</div>
+    	<!-- Include JavaScript files -->
+    	<script src="@routes.Assets.at("javascripts/jquery-1.8.3.min.js")" type="text/javascript"></script>
+    	<script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/app.js")" type="text/javascript"></script>
+    </body>
+</html>

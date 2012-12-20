@@ -1,7 +1,7 @@
 @(user: User, projects: List[Project])
 
 @sidebar = {
-	@views.html.sidebar(true)
+	@views.html.sidebar(user)
 }
 
 @import helper._
@@ -21,9 +21,10 @@
 			This is your first-time login to ExceedVote.
 			We need you to fulfill this below information :)
 		</p>
+		@form(routes.FirstLogin.update()) {
 		<div class="pull-left" style="margin: 0; width: 50%">
 			<label><strong>Username</strong></label>
-			<input type="text" name="username" value="@user.getUsername()" disabled="disabled" style="width: 90%">
+			<input type="text" name="username" value="@user.getUsername()" style="width: 90%">
 			<span class="help-block">@(user.getUsername()) can't be change.</span>
 			<label><strong>Full Name</strong> (Not require)</label>
 			<input type="text" name="name" placeholder="Full Name" style="width: 90%">
@@ -41,9 +42,11 @@
 			</select>
 			<span class="help-block">Choose Project that's you're working on.</span>
 		</div>
-		<p>If your Project doesn't exist, Please contact Administator.</p>
+		<div style="clear: both;"></div>
+		<!-- <p>If your Project doesn't exist, Please contact Administator.</p> -->
 		<input type="submit" value="Save & Continue" class="btn btn-success">
 		<a href="/welcome/information"><button class="btn">Skip</button></a>
+		}
 		<ul class="breadcrumb" style="margin-top: 20px">
   			<li class="active">Welcome</li>
 		</ul>

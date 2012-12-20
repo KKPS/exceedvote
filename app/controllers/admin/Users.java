@@ -12,29 +12,40 @@ import views.html.*;
 public class Users extends Controller {
 
 	public static Result index() {
-		return ok(views.html.users_admin.render(User.find.all(), Role.find.all(), form(User.class)));
+		User user_login = User.find.where().eq("username", request().username()).findUnique();
+		if (user_login.isAdmin) {
+			return ok(views.html.users_admin.render(user_login, User.find.all(), Role.find.all()));
+		}
+		else {
+			return redirect("/");
+		}
 	}
 	
 	public static Result user(String username) {
+		User user_login = User.find.where().eq("username", request().username()).findUnique();
 		User user = User.find.where().eq("username", username).findUnique();
-		Form<User> editForm = form(User.class);
-		if (user != null) {
-			editForm = editForm.fill(user);
+		// Form<User> editForm = form(User.class);
+		if (user_login.isAdmin) {
+			return ok(views.html.user_admin.render(user_login, user, user.ballotThisUser()));
 		}
-		return ok(views.html.user_admin.render(user, user.ballotThisUser(), editForm));
+		else {
+			return redirect("/");
+		}
 	}
 	
 	public static Result create() {
+		User user_login = User.find.where().eq("username", request().username()).findUnique();
 		DynamicForm requestForm = form().bindFromRequest();
 		String username = requestForm.get("username");
 		String password = requestForm.get("password");
 		Long role_id = Long.parseLong(requestForm.get("role_id"));
 		Role role = Role.find.ref(role_id);
 		new User(username, password, role).save();
-		return ok(views.html.users_admin.render(User.find.all(), Role.find.all(), form(User.class)));
+		return ok(views.html.users_admin.render(user_login, User.find.all(), Role.find.all()));
 	}
 	
 	public static Result update(String username) {
+		User user_login = User.find.where().eq("username", request().username()).findUnique();
 		User edit_user = User.find.where().eq("username", username).findUnique();
 		DynamicForm requestForm = form().bindFromRequest();
 		String new_username = requestForm.get("new_username");
@@ -48,13 +59,17 @@ public class Users extends Controller {
 		if (session("username") == edit_user.username) {
 			session("username", update_user.username);
 		}
-		return ok(views.html.user_admin.render(update_user, update_user.ballotThisUser(), form(User.class)));
+		return ok(views.html.user_admin.render(user_login, update_user, update_user.ballotThisUser()));
 	}
 	
 	public static Result delete(String username) {
+		User user_login = User.find.where().eq("username", request().username()).findUnique();
+		if (!user_login.isAdmin) {
+			return redirect("/");
+		}
 		User user = User.find.where().eq("username", username).findUnique();
 		user.delete();
-		return ok(views.html.users_admin.render(User.find.all(), Role.find.all(), form(User.class)));
+		return redirect("/admin/user");
 	}
 	
 }

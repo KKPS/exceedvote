@@ -1,0 +1,48 @@
+@(user: User, requests: List[Request])
+
+@sidebar = {
+	@views.html.sidebar(user)
+}
+
+@import helper._
+
+@main("ExceedVote | Request")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">Request</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+	<h3 style="margin-top: 5px">
+		All Requests
+		<span class="badge" style="margin-top: -3px; vertical-align: middle">@requests.size()</span>
+	</h3>
+		<table class="table table-hover table-bordered">
+			<tr style="background-color: #fafafa">
+				<th>Username</th>
+				<th>Role</th>
+				<th>Approve</th>
+				<th style="width: 95px">Action</th>
+			</tr>
+			@for(request <- requests) {
+			<tr>
+				@form(admin.routes.Requests.create()) {
+				<td>@request.getUsername()</td>
+				<td>@request.role.getName()</td>
+				<td>@request.isApprove()</td>
+				<td><button class="btn btn-small btn-primary" type="submit">Approve</button></td>
+			</tr>
+				<input type="text" name="username" value="@request.getUsername()" type="hidden">
+				<input type="password" name="password" value="@request.getPassword()" type="hidden">
+				<input type="text" name="role_id" value="@request.role.getId()" type="hidden">
+				}
+			}
+		</table>
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/admin">Admin Panel</a> <span class="divider">/</span></li>
+  			<li class="active">Ballot</li>
+		</ul>
+	</div>
+	</div>
+}

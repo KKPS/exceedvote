@@ -16,6 +16,12 @@ public class Project extends Model {
 	
 	public String description;
 	
+	public String imgUrl1;
+	
+	public String imgUrl2;
+	
+	public String imgUrl3;
+	
 	public static Finder<Long, Project> find = new Finder<Long, Project>(Long.class, Project.class);
 	
 	public Project() {
@@ -41,6 +47,30 @@ public class Project extends Model {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getImgUrl1() {
+		return imgUrl1;
+	}
+
+	public void setImgUrl1(String imgUrl1) {
+		this.imgUrl1 = imgUrl1;
+	}
+
+	public String getImgUrl2() {
+		return imgUrl2;
+	}
+
+	public void setImgUrl2(String imgUrl2) {
+		this.imgUrl2 = imgUrl2;
+	}
+
+	public String getImgUrl3() {
+		return imgUrl3;
+	}
+
+	public void setImgUrl3(String imgUrl3) {
+		this.imgUrl3 = imgUrl3;
 	}
 
 	public String toString() {

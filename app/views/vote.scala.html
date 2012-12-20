@@ -1,18 +1,20 @@
 @(user: User, criteria: List[Criterion], projects: List[Project], voteForm: Form[Ballot])
 
 @sidebar = {
-	@views.html.sidebar(user.isAdmin())
+	@views.html.sidebar(user)
 }
 
 @import helper._
 
-@main("Vote")(sidebar) {
-	<h1>Vote.scala.html</h1>
-	<p>Logged in as @user.username</p>
-	@form(routes.Application.logout()) {
-		<input class="btn" type="submit" value="Logout">
-	}
-	<h3>All Questions (Criteria)</h3>
+@main("ExceedVote | Vote")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="relative">
+			Vote
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
 	@for(criterion <- criteria) {
 		@helper.form(routes.Votes.vote()) {
 			<p>@criterion.question</p>
@@ -32,4 +34,9 @@
 			}
 		}
 	}
+	<ul class="breadcrumb">
+  		<li class="active">Home</li>
+	</ul>
+	</div>
+	</div>
 }

@@ -1,7 +1,7 @@
-@(user: User, ballots: List[Ballot], userForm: Form[User])
+@(user_login: User, user: User, ballots: List[Ballot])
 
 @sidebar = {
-	@views.html.sidebar(true)
+	@views.html.sidebar(user_login)
 }
 
 @import helper._
@@ -16,7 +16,8 @@
 	<header class="title">
 		<h2 style="position: relative">
 			@user.username
-			<button class="btn btn-warning pull-right add-item" style="margin-top: 4px">Edit User</button>
+			<button class="btn btn-warning pull-right add-item" style="margin-top: 5px; margin-left: 5px">Edit User</button>
+			<button class="btn btn-danger pull-right add-item" style="margin-top: 5px">Delete User</button>
 		</h2>
 	</header>
 	<div class="btm-border"></div>

@@ -1,7 +1,7 @@
-@(users: List[User], roles: List[Role], userForm: Form[User])
+@(user_login: User, users: List[User], roles: List[Role])
 
 @sidebar = {
-	@views.html.sidebar(true)
+	@views.html.sidebar(user_login)
 }
 
 @import helper._

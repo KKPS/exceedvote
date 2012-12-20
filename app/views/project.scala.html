@@ -1,0 +1,31 @@
+@(user: User, project: Project, isOwner: Boolean)
+
+@sidebar = {
+	@views.html.sidebar(user)
+}
+
+@import helper._
+
+@if(project == null) {
+@main("ExceedVote | Not found!")(sidebar) {
+	@views.html.notfound("Project")
+}
+} else {
+@main("ExceedVote | Project | " + project.getName())(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			@project.getName()
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+		@if(isOwner) {
+		<p>true</p>
+		} else {
+		<p>false</p>
+		}
+	</div>
+	</div>
+}
+}

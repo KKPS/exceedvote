@@ -9,13 +9,15 @@
         <!-- Include CSS files -->
         <!-- Include '???' from Google Web Fonts -->
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/font-awesome.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app.css")">
     </head>
     <body>
     	<div class="navbar navbar-exceed navbar-static-top">
     		<div class="navbar-inner">
-    		<div class="container">
-    			<a class="brand" href="#">ExceedVote</a>
+    		<div class="container" style="width: 1020px; margin-top: 4px">
+    			<a class="brand" href="#">ExceedVote by KKPS (BETA)</a>
+    			<a href="/login"><button class="btn pull-right"><i class="icon-signin" style="margin-right: 5px"></i> Log In</button></a>
     		</div>
     		</div>
     	</div>
@@ -23,18 +25,20 @@
     	<div class="container" style="width: 720px; margin: auto">
     		<div class="shadow">
     			<header class="title">
-    				<h2>Request for sonnyhonny</h2>
+    				<h2>Request for @request.username</h2>
     			</header>
     			<div class="btm-border"></div>
     			<div class="content">
     				<h3 style="margin-top: 5px">Thanks for your interest!</h3>
     				<h4>Your status is:</h4>
+    				@if(request.isApprove()) {
     				<div class="request-status-success">
     					<div class="request-inner">
     					<h4 style="margin: 0; text-align: center">Approved!</h4>
     					</div>
     				</div>
     				<p>You can login with your Username & Password that's you're sign-up with.</p>
+    				} else {
     				<div class="request-status-unsuccess">
     					<div class="request-inner">
     					<h4 style="margin: 0; text-align: center">Not Approve Yet!</h4>
@@ -44,9 +48,10 @@
     				<h4>You can check approves of your request by this URL:</h4>
     				<div class="request-link">
     					<div class="request-inner">
-    					<h4 style="margin: 0; text-align: center">http://exceedvote.com/request/sonnyhonny</h4>
+    					<h4 style="margin: 0; text-align: center">http://exceedvote.com/request/@request.username</h4>
     					</div>
     				</div>
+    				}
     				<ul class="breadcrumb">
   						<li><a href="/request">Sign-Up</a> <span class="divider">/</span></li>
   						<li class="active">Request Result</li>

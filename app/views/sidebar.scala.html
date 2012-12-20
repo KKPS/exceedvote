@@ -1,18 +1,53 @@
-@(isAdmin: Boolean)
+@(user: User)
 
-@if(isAdmin==true) {
-					<p><a href="/">Dashboard</a></p>
-					<p><a href="/admin/project">Project</a></p>
-					<p><a href="/admin/criterion">Criterion</a></p>
-					<p><a href="/admin/role">Role</a></p>
-					<p><a href="/admin/user">User</a></p>
-					<p><a href="/admin/ballot">Ballot</a></p>
-					<p><a href="/rank">Ranking</a></p>
-} else {
-					<p><a href="/">Dashboard</a></p>
-					<p><a href="/project">All Projects</a></p>
-					<p><a href="/ballot">Your Ballots</a></p>
-					<p><a href="/project/edit">Edit Your Project</a></p>
-					<p><a href="/setting">Setting</a></p>
-					<p><a href="/rank">Ranking</a></p>
-}
+				<div class="sidebar shadow">
+				@if(user.isAdmin()==true) {
+					<ul class="sidebar-nav">
+						<div class="user-detail">
+							<p>Logged in as <a href="/setting">@user.getName()</a></p>
+						</div>
+						<li>
+							<a href="/"><i class="icon-check icon-white"></i> Vote</a>
+						</li>
+						<li>
+							<a href="/admin"><i class="icon-home icon-white"></i> Admin Panel</a>
+						</li>
+						<li>
+							<a href="/admin/project"><i class="icon-folder-close icon-white"></i> Project</a>
+						</li>
+						<li>
+							<a href="/admin/criterion"><i class="icon-question-sign icon-white"></i> Criterion</a>
+						</li>
+						<li>
+							<a href="/admin/user"><i class="icon-group icon-white"></i> User</a>
+						</li>
+						<li>
+							<a href="/admin/request"><i class="icon-bell icon-white"></i> Request</a>
+						</li>
+						<li>
+							<a href="/admin/ballot"><i class="icon-sign-blank icon-white"></i> Ballot</a>
+						</li>
+					</ul>
+				} else {
+					<ul class="sidebar-nav">
+						<div class="user-detail">
+							<p>Logged in as <a href="/setting">@user.getName()</a></p>
+						</div>
+						<li>
+							<a href="/"><i class="icon-check icon-white"></i> Vote</a>
+						</li>
+						<li>
+							<a href="/project"><i class="icon-folder-close icon-white"></i> Project</a>
+						</li>
+						<li>
+							<a href="/ballot"><i class="icon-sign-blank icon-white"></i> Ballot</a>
+						</li>
+						<li>
+							<a href="/setting"><i class="icon-cog icon-white"></i> Setting</a>
+						</li>
+						<li>
+							<a href="/rank"><i class="icon-trophy icon-white"></i> Ranking</a>
+						</li>
+					</ul>
+				}
+				</div>

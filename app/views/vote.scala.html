@@ -1,4 +1,4 @@
-@(user: User, criteria: List[Criterion], projects: List[Project], voteForm: Form[Ballot])
+@(user: User, rule: Rule, criteria: List[Criterion], projects: List[Project], voteForm: Form[Ballot])
 
 @sidebar = {
 	@views.html.sidebar(user)
@@ -15,6 +15,7 @@
 	</header>
 	<div class="btm-border"></div>
 	<div class="content">
+	@if(rule.canVote() == true) {
 	@for(criterion <- criteria) {
 		@helper.form(routes.Votes.vote()) {
 			<p>@criterion.question</p>
@@ -33,6 +34,9 @@
 				<p><input class="btn btn-danger" type="submit" value="Vote" disabled="disabled"></p>
 			}
 		}
+	}
+	} else {
+		<h3>Timed out!</h3>
 	}
 	<ul class="breadcrumb">
   		<li class="active">Home</li>

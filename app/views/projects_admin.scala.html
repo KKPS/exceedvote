@@ -21,6 +21,9 @@
 	@form(admin.routes.Projects.create()) {
 		<input type="text" name="name" placeholder="Project Name" style="width: 450px; margin-bottom: 10px"><br>
 		<textarea name="description" rows="3" placeholder="Project Description" style="width: 450px; margin-bottom: 10px"></textarea><br>
+		<input type="text" name="imgUrl1" placeholder="Screenshot #1" style="width: 450px; margin-bottom: 10px"><br>
+		<input type="text" name="imgUrl2" placeholder="Screenshot #2" style="width: 450px; margin-bottom: 10px"><br>
+		<input type="text" name="imgUrl3" placeholder="Screenshot #3" style="width: 450px; margin-bottom: 10px"><br>
 		<input type="submit" value="Save Project" class="btn">
 	}
 	</div>
@@ -33,11 +36,19 @@
 		<p>No project now</p>
 		} else {
 		@for(project <- projects) {
-		<p><a href="/admin/project/@project.name">@project.name</a></p>
-		<p>@project.description</p>
-		@form(admin.routes.Projects.delete(project.name)) {
-		<input type="submit" value="Delete">
+		<div class="project">
+		@if(project.getImgUrl1 == null || project.getImgUrl1 == "") {
+			<div class="pull-left" style="width: 40px; height: 40px; margin-right: 10px"></div>
+		} else {
+			<div class="project-img">
+				<img src="@project.getImgUrl1()" class="img-circle pull-left" style="width: 40px; height: 40px; margin-right: 10px">
+			</div>
 		}
+		<h4><a href="/admin/project/@project.name">@project.name</a></h4>
+		@form(admin.routes.Projects.delete(project.name)) {
+		<input type="submit" value="Delete" class="btn btn-danger pull-right" style="margin-top: -36px">
+		}
+		</div>
 		}
 		}
 		<ul class="breadcrumb">

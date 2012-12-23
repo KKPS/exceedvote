@@ -46,6 +46,13 @@ create table role (
   constraint pk_role primary key (id))
 ;
 
+create table rule (
+  id                        bigint auto_increment not null,
+  start                     datetime,
+  finish                    datetime,
+  constraint pk_rule primary key (id))
+;
+
 create table user (
   id                        bigint auto_increment not null,
   username                  varchar(255),
@@ -86,6 +93,8 @@ drop table project;
 drop table request;
 
 drop table role;
+
+drop table rule;
 
 drop table user;
 

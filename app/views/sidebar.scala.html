@@ -4,7 +4,11 @@
 				@if(user.isAdmin()==true) {
 					<ul class="sidebar-nav">
 						<div class="user-detail">
+							@if(user.getName() == "" || user.getName() == null) {
+							<p>Logged in as <a href="/setting">@user.getUsername()</a></p>
+							} else {
 							<p>Logged in as <a href="/setting">@user.getName()</a></p>
+							}
 						</div>
 						<li>
 							<a href="/"><i class="icon-check icon-white"></i> Vote</a>
@@ -19,6 +23,9 @@
 							<a href="/admin/criterion"><i class="icon-question-sign icon-white"></i> Criterion</a>
 						</li>
 						<li>
+							<a href="/admin/rule"><i class="icon-time icon-white"></i> Rule</a>
+						</li>
+						<li>
 							<a href="/admin/user"><i class="icon-group icon-white"></i> User</a>
 						</li>
 						<li>
@@ -27,11 +34,18 @@
 						<li>
 							<a href="/admin/ballot"><i class="icon-sign-blank icon-white"></i> Ballot</a>
 						</li>
+						<li>
+							<a href="/rank"><i class="icon-trophy icon-white"></i> Ranking</a>
+						</li>
 					</ul>
 				} else {
 					<ul class="sidebar-nav">
 						<div class="user-detail">
+							@if(user.getName() == "" || user.getName() == null) {
+							<p>Logged in as <a href="/setting">@user.getUsername()</a></p>
+							} else {
 							<p>Logged in as <a href="/setting">@user.getName()</a></p>
+							}
 						</div>
 						<li>
 							<a href="/"><i class="icon-check icon-white"></i> Vote</a>
@@ -41,9 +55,6 @@
 						</li>
 						<li>
 							<a href="/ballot"><i class="icon-sign-blank icon-white"></i> Ballot</a>
-						</li>
-						<li>
-							<a href="/setting"><i class="icon-cog icon-white"></i> Setting</a>
 						</li>
 						<li>
 							<a href="/rank"><i class="icon-trophy icon-white"></i> Ranking</a>

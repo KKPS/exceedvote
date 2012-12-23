@@ -18,7 +18,7 @@
     	<div class="navbar navbar-exceed navbar-static-top">
     		<div class="navbar-inner">
     		<div class="container" style="width: 1020px; margin-top: 4px">
-    			<a class="brand" href="#">ExceedVote by KKPS (BETA)</a>
+    			<a class="brand" href="#">ExceedVote</a>
     			<a href="/login"><button class="btn pull-right"><i class="icon-signin" style="margin-right: 5px"></i> Log In</button></a>
     		</div>
     		</div>
@@ -35,8 +35,13 @@
     				@form(routes.Requests.create()) {
     				<div class="pull-left" style="margin: 0; width: 50%">
 						<label><strong>Username</strong></label>
-						<input type="text" name="username" style="width: 90%">
+						<input type="text" name="username" placeholder="Username" style="width: 90%">
 						<span class="help-block">Your Username this can't be change later.</span>
+						<label><strong>Password</strong></label>
+						<input type="password" name="password" placeholder="Password" style="width: 90%">
+						<span class="help-block">Your Password.</span>
+					</div>
+					<div class="pull-right" style="margin: 0; width: 50%">
 						<label><strong>Role</strong></label>
 						<select name="role_id" style="width: 94%">
 							@for(role <- roles) {
@@ -44,11 +49,6 @@
 							}
 						</select>
 						<span class="help-block">What can defines you?</span>
-					</div>
-					<div class="pull-right" style="margin: 0; width: 50%">
-						<label><strong>Password</strong></label>
-						<input type="password" name="password" placeholder="Password" style="width: 90%">
-						<span class="help-block">Your Password.</span>
 					</div>
 					<div style="clear: both;"></div>
 					<input type="submit" value="Sign Up" class="btn btn-primary" style="margin-bottom: 20px">

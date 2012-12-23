@@ -27,7 +27,11 @@
 			<input type="text" name="username" value="@user.getUsername()" style="width: 90%">
 			<span class="help-block">@(user.getUsername()) can't be change.</span>
 			<label><strong>Full Name</strong> (Not require)</label>
+			@if(user.getName() == "" || user.getName() == null) {
 			<input type="text" name="name" placeholder="Full Name" style="width: 90%">
+			} else {
+			<input type="text" name="name" placeholder="Full Name" value="@user.getName()" style="width: 90%">
+			}
 			<span class="help-block">Your Full name.</span>
 		</div>
 		<div class="pull-right" style="margin: 0; width: 50%">

@@ -17,6 +17,7 @@ public class Global extends GlobalSettings {
 				Ebean.save(all.get("projects"));
 				Ebean.save(all.get("criteria"));
 				Ebean.save(all.get("request"));
+				Ebean.save(all.get("rule"));
 			}
 		}
 	}

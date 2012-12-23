@@ -7,11 +7,42 @@
 @import helper._
 
 @main("Ranking")(sidebar) {
-	<h1>rank.scala.html</h1>
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">Ranking</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="content">
+	<h3>By Project</h3>
+	<table class="table table-hover table-bordered">
+			<tr style="background-color: #fafafa">
+				<th>Project</th>
+				<th>Ballot(s)</th>
+			</tr>
+			@for(project <- projects) {
+			<tr>
+				<td>@project.name</td>
+				<td>@project.thisScore()</td>
+			</tr>
+			}
+	</table>
+	<div class="content-divider"></div>
+	<h3>By Criterion</h3>
 	@for(criterion <- criteria) {
-		<h3>@criterion.question</h3>
-		@for(project <- projects) {
-			<p>@project.name @project.score(criterion)</p>
-		}
+		<h4>@criterion.question</h4>
+		<table class="table table-hover table-bordered">
+			<tr style="background-color: #fafafa">
+				<th>Project</th>
+				<th>Ballot(s)</th>
+			</tr>
+			@for(project <- projects) {
+			<tr>
+				<td>@project.name</td>
+				<td>@project.score(criterion)</td>
+			</tr>
+			}
+		</table>
 	}
+	</div>
+	</div>
 }

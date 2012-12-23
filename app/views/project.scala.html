@@ -25,6 +25,20 @@
 		} else {
 		<p>false</p>
 		}
+		<h3 style="margin-top: 5px">@project.name</h3>
+		<p>@project.description</p>
+		@if(project.getImgUrl1() == null || project.getImgUrl1() == "") {
+		<p>No pics</p>
+		} else {
+		<img src="@project.getImgUrl1()" class="img-polaroid">
+		<img src="@project.getImgUrl2()" class="img-rounded">
+		<img src="@project.getImgUrl3()" class="img-rounded">
+		}
+		<ul class="breadcrumb">
+  			<li><a href="/">Home</a> <span class="divider">/</span></li>
+  			<li><a href="/project">Project</a> <span class="divider">/</span></li>
+  			<li class="active">@project.name</li>
+		</ul>
 	</div>
 	</div>
 }

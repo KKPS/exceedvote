@@ -17,7 +17,7 @@
 	<div class="content">
 		<h3 style="margin-top: 5px">Your Project</h3>
 		@if(user_project == null) {
-			<p>You didn't setup your Project yet. You can setup <a href="/setting">here</a></p>
+			<p>You didn't setup your Project yet. You can setup in <a href="/welcome">Welcome page</a></p>
 		} else {
 		<h4><a href="/project/@user_project.getName()">@user_project.getName()</a></h4>
 		<p>@user_project.getDescription()</p>

@@ -73,6 +73,7 @@ header.title h2 {
 .shadow {
 	border-radius: 5px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	margin-bottom: 20px;
 }
 
 .content {
@@ -99,6 +100,22 @@ header.title h2 {
 	border-radius: 4px;
 	padding: 5px 10px;
 	margin-bottom: 20px;
+}
+
+.criterion > form {
+	margin: 0;
+}
+
+/* Project */
+.project {
+	background: whiteSmoke;
+	border-radius: 4px;
+	padding: 5px 10px;
+	margin-bottom: 20px;
+}
+
+.project > form {
+	margin: 0;
 }
 
 /* Request */
@@ -152,7 +169,13 @@ ul.sidebar-nav {
 }
 
 ul.sidebar-nav .user-detail {
+	font-weight: bold;
 	padding: 20px 20px 10px 20px;
+}
+
+a.user-detail {
+	color: #68c9ed;
+	text-decorator: none;
 }
 
 ul.sidebar-nav > li {

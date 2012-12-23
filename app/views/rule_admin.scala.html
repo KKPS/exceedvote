@@ -1,0 +1,30 @@
+@(user: User, rule: Rule)
+
+@sidebar = {
+	@views.html.sidebar(user)
+}
+
+@main("ExceedVote | Admin | Rule")(sidebar) {
+	<div class="shadow">
+	<header class="title">
+		<h2 style="position: relative">
+			Rule
+			<button class="btn btn-warning pull-right add-item" style="margin-top: 4px">Edit Rule</button>
+		</h2>
+	</header>
+	<div class="btm-border"></div>
+	<div class="black-add" style="display: none">
+		<h4>Edit Rule</h4>
+		<label>Start Vote Time</label>
+		<input type="text" name="start">
+		<label>Finish Vote Time</label>
+		<input type="text" name="finish">
+		<input type="submit" value="Save Rule" class="btn">
+	</div>
+	<div class="content">
+		<h3 style="margin-top: 5px">Rule</h3>
+		<p>Start: @rule.getStart().toString()</p>
+		<p>Finish: @rule.getFinish().toString()</p>
+	</div>
+	</div>
+}

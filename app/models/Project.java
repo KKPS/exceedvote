@@ -82,4 +82,8 @@ public class Project extends Model {
 		return Ballot.find.where().eq("project", this).eq("criterion", criterion).findList().size();
 	}
 	
+	public int thisScore() {
+		return Ballot.find.where().eq("project", this).findList().size();
+	}
+	
 }

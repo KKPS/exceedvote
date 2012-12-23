@@ -14,7 +14,9 @@ public class Votes extends Controller {
 
 	public static Result index() {
 		User user = User.find.where().eq("username", request().username()).findUnique();
-		return ok(views.html.vote.render(user, Criterion.find.all(), Project.find.all(), ballotForm));
+		Long rule_id = (long) 1;
+		Rule rule = Rule.find.ref(rule_id);
+		return ok(views.html.vote.render(user, rule, Criterion.find.all(), Project.find.all(), ballotForm));
 	}
 	
 	public static Result vote() {
@@ -27,7 +29,9 @@ public class Votes extends Controller {
 		Project project = Project.find.ref(project_id);
 		Criterion criterion = Criterion.find.ref(criterion_id);
 		new Ballot(user, project, criterion).save();
-		return ok(views.html.vote.render(login, Criterion.find.all(), Project.find.all(), ballotForm));
+		Long rule_id = (long) 1;
+		Rule rule = Rule.find.ref(rule_id);
+		return ok(views.html.vote.render(login, rule, Criterion.find.all(), Project.find.all(), ballotForm));
 	}
 	
 }

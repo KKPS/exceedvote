@@ -33,9 +33,9 @@
 		} else {
 		@for(criterion <- criteria) {
 		<div class="criterion">
-		<h4><a href="/admin/criterion/@criterion.id">@criterion.question</a></h4>
+		<h4 style="position: relative"><a href="/admin/criterion/@criterion.id">@criterion.question</a></h4>
 		@form(admin.routes.Criteria.delete(criterion.id)) {
-		<input class="btn btn-danger" type="submit" value="Delete">
+		<input class="btn btn-danger pull-right" style="margin-top: -36px" type="submit" value="Delete">
 		</div>
 		}
 		}

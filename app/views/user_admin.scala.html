@@ -17,7 +17,6 @@
 		<h2 style="position: relative">
 			@user.username
 			<button class="btn btn-warning pull-right add-item" style="margin-top: 5px; margin-left: 5px">Edit User</button>
-			<button class="btn btn-danger pull-right add-item" style="margin-top: 5px">Delete User</button>
 		</h2>
 	</header>
 	<div class="btm-border"></div>
@@ -34,6 +33,9 @@
 	<div class="content">
 		<h3 style="margin-top: 5px">@user.username</h3>
 		<!-- TODO User Description -->
+		@form(admin.routes.Users.delete(user.username)) {
+		<input type="submit" value="Delete" class="btn btn-danger">
+		}
 		<h3>All @(user.username)'s Ballots</h3>
 		@if(ballots.isEmpty) {
 		<p>No Ballot by @user.username</p>

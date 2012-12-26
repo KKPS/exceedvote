@@ -217,6 +217,22 @@ ul.sidebar-nav > li > a > i {
 	margin-right: 5px;	
 }
 
+ul.sidebar-nav > li.active > a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #68c9ed;
+	background: black;
+	display: block;
+	padding: 13px 20px;
+}
+
+ul.sidebar-nav > li.active:last-child > a {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+
+
 /* Footer */
 .footer {
 	background: white;

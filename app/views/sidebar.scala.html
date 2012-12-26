@@ -1,4 +1,4 @@
-@(user: User)
+@(user: User, page: String)
 
 				<div class="sidebar shadow">
 				@if(user.isAdmin()==true) {
@@ -10,33 +10,105 @@
 							<p>Logged in as <a href="/setting">@user.getName()</a></p>
 							}
 						</div>
+						@if(page=="VOTE") {
+						<li class="active">
+							<a href="/"><i class="icon-check icon-white"></i> Vote</a>
+						</li>
+						} else {
 						<li>
 							<a href="/"><i class="icon-check icon-white"></i> Vote</a>
 						</li>
+						}
+						@if(page=="ADMIN PANEL") {
+						<li class="active">
+							<a href="/admin"><i class="icon-home icon-white"></i> Admin Panel</a>
+						</li>
+						} else {
 						<li>
 							<a href="/admin"><i class="icon-home icon-white"></i> Admin Panel</a>
 						</li>
+						}
+						@if(page=="ADMIN PROJECT") {
+						<li class="active">
+							<a href="/admin/project"><i class="icon-folder-close icon-white"></i> Project</a>
+						</li>
+						} else {
 						<li>
 							<a href="/admin/project"><i class="icon-folder-close icon-white"></i> Project</a>
 						</li>
+						}
+						@if(page=="ADMIN CRITERION") {
+						<li class="active">
+							<a href="/admin/criterion"><i class="icon-question-sign icon-white"></i> Criterion</a>
+						</li>
+						} else {
 						<li>
 							<a href="/admin/criterion"><i class="icon-question-sign icon-white"></i> Criterion</a>
 						</li>
+						}
+						@if(page=="ADMIN RULE") {
+						<li class="active">
+							<a href="/admin/rule"><i class="icon-time icon-white"></i> Rule</a>
+						</li>
+						} else {
 						<li>
 							<a href="/admin/rule"><i class="icon-time icon-white"></i> Rule</a>
 						</li>
+						}
+						@if(page=="ADMIN USER") {
+						<li class="active">
+							<a href="/admin/user"><i class="icon-group icon-white"></i> User</a>
+						</li>
+						} else {
 						<li>
 							<a href="/admin/user"><i class="icon-group icon-white"></i> User</a>
 						</li>
+						}
+						@if(page=="ADMIN ROLE") {
+						<li class="active">
+							<a href="/admin/role"><i class="icon-info-sign icon-white"></i> Role</a>
+						</li>
+						} else {
+						<li>
+							<a href="/admin/role"><i class="icon-info-sign icon-white"></i> Role</a>
+						</li>
+						}
+						@if(page=="ADMIN REQUEST") {
+						<li class="active">
+							<a href="/admin/request"><i class="icon-bell icon-white"></i> Request</a>
+						</li>
+						} else {
 						<li>
 							<a href="/admin/request"><i class="icon-bell icon-white"></i> Request</a>
 						</li>
+						}
+						@if(page=="ADMIN BALLOT") {
+						<li class="active">
+							<a href="/admin/ballot"><i class="icon-sign-blank icon-white"></i> Ballot</a>
+						</li>
+						} else {
 						<li>
 							<a href="/admin/ballot"><i class="icon-sign-blank icon-white"></i> Ballot</a>
 						</li>
+						}
+						@if(page=="ADMIN RANK") {
+						<li class="active">
+							<a href="/rank"><i class="icon-trophy icon-white"></i> Ranking</a>
+						</li>
+						} else {
 						<li>
 							<a href="/rank"><i class="icon-trophy icon-white"></i> Ranking</a>
 						</li>
+						}
+						@if(page=="SETTING") {
+						<li class="active">
+							<a href="/setting"><i class="icon-cog icon-white"></i> Setting</a>
+						</li>
+						} else {
+						<li>
+							<a href="/setting"><i class="icon-cog icon-white"></i> Setting</a>
+						</li>
+						}
 					</ul>
 				} else {
 					<ul class="sidebar-nav">
@@ -47,18 +119,51 @@
 							<p>Logged in as <a href="/setting">@user.getName()</a></p>
 							}
 						</div>
+						@if(page=="VOTE") {
+						<li class="active">
+							<a href="/"><i class="icon-check icon-white"></i> Vote</a>
+						</li>
+						} else {
 						<li>
 							<a href="/"><i class="icon-check icon-white"></i> Vote</a>
 						</li>
+						}
+						@if(page=="PROJECT") {
+						<li class="active">
+							<a href="/project"><i class="icon-folder-close icon-white"></i> Project</a>
+						</li>
+						} else {
 						<li>
 							<a href="/project"><i class="icon-folder-close icon-white"></i> Project</a>
 						</li>
+						}
+						@if(page=="BALLOT") {
+						<li class="active">
+							<a href="/ballot"><i class="icon-sign-blank icon-white"></i> Ballot</a>
+						</li>
+						} else {
 						<li>
 							<a href="/ballot"><i class="icon-sign-blank icon-white"></i> Ballot</a>
 						</li>
+						}
+						@if(page=="RANK") {
+						<li class="active">
+							<a href="/rank"><i class="icon-trophy icon-white"></i> Ranking</a>
+						</li>
+						} else {
 						<li>
 							<a href="/rank"><i class="icon-trophy icon-white"></i> Ranking</a>
 						</li>
+						}
+						@if(page=="SETTING") {
+						<li class="active">
+							<a href="/setting"><i class="icon-cog icon-white"></i> Setting</a>
+						</li>
+						} else {
+						<li>
+							<a href="/setting"><i class="icon-cog icon-white"></i> Setting</a>
+						</li>
+						}
 					</ul>
 				}
 				</div>

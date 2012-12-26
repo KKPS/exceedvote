@@ -1,7 +1,7 @@
 @(user: User, criterion: Criterion, ballots: List[Ballot])
 
 @sidebar = {
-	@views.html.sidebar(user)
+	@views.html.sidebar(user, "ADMIN CRITERION")
 }
 
 @import helper._

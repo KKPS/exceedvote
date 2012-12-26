@@ -1,7 +1,7 @@
 @(user: User)
 
 @sidebar = {
-	@views.html.sidebar(user)
+	@views.html.sidebar(user, "ADMIN PANEL")
 }
 
 @main("ExceedVote | Admin Panel")(sidebar) {

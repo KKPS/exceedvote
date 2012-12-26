@@ -1,7 +1,7 @@
 @(user: User, rule: Rule)
 
 @sidebar = {
-	@views.html.sidebar(user)
+	@views.html.sidebar(user, "ADMIN RULE")
 }
 
 @main("ExceedVote | Admin | Rule")(sidebar) {

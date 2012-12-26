@@ -1,7 +1,7 @@
 @(user: User, rule: Rule, criteria: List[Criterion], projects: List[Project], voteForm: Form[Ballot])
 
 @sidebar = {
-	@views.html.sidebar(user)
+	@views.html.sidebar(user, "VOTE")
 }
 
 @import helper._

@@ -1,7 +1,7 @@
 @(user: User, criteria: List[Criterion], projects: List[Project])
 
 @sidebar = {
-	@views.html.sidebar(user)
+	@views.html.sidebar(user, "RANK")
 }
 
 @import helper._
@@ -33,7 +33,7 @@
 		<table class="table table-hover table-bordered">
 			<tr style="background-color: #fafafa">
 				<th>Project</th>
-				<th>Ballot(s)</th>
+				<th>Ballot (s)</th>
 			</tr>
 			@for(project <- projects) {
 			<tr>

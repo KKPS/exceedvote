@@ -1,7 +1,7 @@
 @(user: User, roles: List[Role])
 
 @sidebar = {
-	@views.html.sidebar(user)
+	@views.html.sidebar(user, "ADMIN ROLE")
 }
 
 @import helper._

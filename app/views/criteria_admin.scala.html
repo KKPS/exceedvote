@@ -16,12 +16,16 @@
 	</header>
 	<div class="btm-border"></div>
 	<div class="black-add" style="display: none">
-		<h4>Add New Criterion</h4>
-		<p>Criterion...</p>
 		@form(admin.routes.Criteria.create()) {
-		<input type="text" name="question" placeholder="Criterion" style="width: 450px">
-		<input class="btn" type="submit" value="Save Criterion">
-	}
+		<h4>Add New Criterion</h4>
+		<div style="margin: 0; width: 95%">
+			<label><strong>Criterion</strong></label>
+			<input type="text" name="question" style="width: 100%">
+			<span class="help-block" style="color: white">Criterion (Question) to judged.</span>
+		</div>
+		<input type="submit" value="Save Criterion" class="btn btn-success">
+		<button class="btn add-item" style="margin-left: 5px">Cancel</button>
+		}
 	</div>
 	<div class="content">
 		<h3 style="margin-top: 5px">

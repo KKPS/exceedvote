@@ -28,7 +28,7 @@ public class Requests extends Controller {
 		String password = requestForm.get("password");
 		Long role_id = Long.parseLong(requestForm.get("role_id"));
 		Role role = Role.find.ref(role_id);
-		new User(username, password, role).save();
+		new User(username, password, role, null).save();
 		Long request_id = Request.find.where().eq("username", username).findUnique().getId();
 		Request new_request = Request.find.where().eq("username", username).findUnique();
 		new_request.setApprove(true);

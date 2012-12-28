@@ -23,9 +23,13 @@
 	<div class="black-add" style="display: none">
 	@form(admin.routes.Criteria.update(criterion.id)) {
 	<h4>Edit @criterion.question</h4>
-	<input type="text" name="question" value="@criterion.question" style="width: 450px; margin-bottom: 10px"><br>
-	<textarea name="description" rows="3" style="width: 450px; margin-bottom: 10px">@criterion.description</textarea><br>
-	<input class="btn" type="submit" value="Save">
+	<div style="margin: 0; width: 95%">
+		<label><strong>Criterion</strong></label>
+		<input type="text" name="question" value="@criterion.question" style="width: 100%">
+		<span class="help-block" style="color: white">Criterion (Question) to judged.</span>
+	</div>
+	<input type="submit" value="Save Criterion" class="btn btn-success">
+	<button class="btn add-item" style="margin-left: 5px">Cancel</button>
 	}
 	</div>
 	<div class="content">

@@ -1,4 +1,4 @@
-@(user_login: User, user: User, ballots: List[Ballot])
+@(user_login: User, user: User, ballots: List[Ballot], roles: List[Role], projects: List[Project])
 
 @sidebar = {
 	@views.html.sidebar(user_login, "ADMIN USER")
@@ -23,18 +23,59 @@
 	<div class="black-add" style="display: none">
 		@form(admin.routes.Users.update(user.username)) {
 			<h4>Edit @user.username</h4>
-			<input type="text" name="new_username" value="@user.username" style="width: 450px; margin-bottom: 10px"><br>
-			<input type="password" name="new_password" value="@user.password" style="width: 450px; margin-bottom: 10px"><br>
-			<input type="text" name="new_name" value="@user.name" style="width: 450px; margin-bottom: 10px"><br>
-			<input name="new_role_id" value="@user.role.getId()" type="hidden">
-			<input type="submit" value="Save User" class="btn">
+			<div class="pull-left" style="margin: 0; width: 50%">
+			<label><strong>Username</strong></label>
+			<input type="text" name="new_username" placeholder="Username" value="@user.username" style="width: 90%">
+			<span class="help-block" style="color: white">Username.</span>
+			<label><strong>Password</strong></label>
+			<input type="password" name="new_password" placeholder="Password" value="@user.password" style="width: 90%">
+			<span class="help-block" style="color: white">Password.</span>
+			<label><strong>Full Name</strong></label>
+			<input type="text" name="new_name" placeholder="Full Name" value="@user.name" style="width: 90%">
+			<span class="help-block" style="color: white">Full Name.</span>
+		</div>
+		<div class="pull-right" style="margin: 0; width: 50%">
+			<label><strong>Role</strong></label>
+				<select name="new_role_id" style="width: 94%; margin-bottom: 0">
+					@for(role <- roles) {
+					<option value="@role.id">@role.name</option>
+					}
+				</select>
+			<span class="help-block" style="color: white">User's Role.</span>
+			<label><strong>Project</strong></label>
+			<select name="new_project_id" style="width: 94%; margin-bottom: 0">
+				<option value="999">-- None --</option>
+				@for(project <- projects) {
+				<option value="@project.id">@project.name</option>
+				}
+			</select>
+			<span class="help-block" style="color: white">User's Project.</span>
+		</div>
+		<div style="clear: both"></div>
+		<div style="margin: 0; width: 95%; position: relative">
+			<input type="submit" value="Save User" class="btn btn-success">
+			<button class="btn add-item" style="margin-left: 5px">Cancel</button>
+		</div>
 		}
 	</div>
 	<div class="content">
 		<h3 style="margin-top: 5px">@user.username</h3>
+		<p><strong>Username:</strong> @user.username</p>
+		<p><strong>Password:</strong> @user.password</p>
+		@if(user.name==null || user.name=="") {
+		<p><strong>Full Name:</strong> -- <em>None</em> --</p>
+		} else {
+		<p><strong>Full Name:</strong> @user.name</p>
+		}
+		<p><strong>Role:</strong> @user.role.getName()</p>
+		@if(user.project==null) {
+		<p><strong>Project:</strong> -- <em>None</em> --</p>
+		} else {
+		<p><strong>Project:</strong> @user.project.getName()</p>
+		}
 		<!-- TODO User Description -->
 		@form(admin.routes.Users.delete(user.username)) {
-		<input type="submit" value="Delete" class="btn btn-danger">
+		<input type="submit" value="Delete This User" class="btn btn-danger">
 		}
 		<h3>All @(user.username)'s Ballots</h3>
 		@if(ballots.isEmpty) {

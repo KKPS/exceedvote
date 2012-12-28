@@ -36,10 +36,11 @@ public class User extends Model {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User(String username, String password, Role role) {
+	public User(String username, String password, Role role, Project project) {
 		this.username = username;
 		this.password = password;
 		this.role = role;
+		this.project = project;
 		this.isAdmin = false;
 		this.firstLogin = true;
 	}

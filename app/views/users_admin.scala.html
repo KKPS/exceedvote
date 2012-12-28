@@ -1,4 +1,4 @@
-@(user_login: User, users: List[User], roles: List[Role])
+@(user_login: User, users: List[User], roles: List[Role], projects: List[Project])
 
 @sidebar = {
 	@views.html.sidebar(user_login, "ADMIN USER")
@@ -17,17 +17,34 @@
 	<div class="btm-border"></div>
 	<div class="black-add" style="display: none">
 		<h4>Add New User</h4>
-		<p>User...</p>
 		@form(admin.routes.Users.create()) {
-		<p>Username: <input type="text" name="username"></p>
-		<p>Password: <input type="text" name="password"></p>
-		<p>Role:</p>
-		<select name="role_id">
-		@for(role <- roles) {
-			<option value="@role.id">@role.name</option>
-		}
-		</select>
-		<p><input class="btn" type="submit" value="Save User"></p>
+		<div class="pull-left" style="margin: 0; width: 50%">
+			<label><strong>Username</strong></label>
+			<input type="text" name="username" placeholder="Username" style="width: 90%">
+			<span class="help-block" style="color: white">Username.</span>
+			<label><strong>Role</strong></label>
+				<select name="role_id" style="width: 94%; margin-bottom: 0">
+					@for(role <- roles) {
+					<option value="@role.id">@role.name</option>
+					}
+				</select>
+			<span class="help-block" style="color: white">User's Role.</span>
+		</div>
+		<div class="pull-right" style="margin: 0; width: 50%">
+			<label><strong>Password</strong></label>
+			<input type="password" name="password" placeholder="Password" style="width: 90%">
+			<span class="help-block" style="color: white">Password.</span>
+			<label><strong>Project</strong></label>
+			<select name="project_id" style="width: 94%; margin-bottom: 0">
+				<option value="999">-- None --</option>
+				@for(project <- projects) {
+				<option value="@project.id">@project.name</option>
+				}
+			</select>
+			<span class="help-block" style="color: white">User's Project.</span>
+		</div>
+		<input type="submit" value="Save User" class="btn btn-success">
+		<button class="btn add-item" style="margin-left: 5px">Cancel</button>
 		}
 	</div>
 	<div class="content">

@@ -15,16 +15,32 @@
 		</h2>
 	</header>
 	<div class="btm-border"></div>
-	<div class="black-add" style="display: none">
+	<div class="black-add" style="display: none; overflow: hidden;">
 	<h4>Add a new Project</h4>
-	<p>Project...</p>
 	@form(admin.routes.Projects.create()) {
-		<input type="text" name="name" placeholder="Project Name" style="width: 450px; margin-bottom: 10px"><br>
-		<textarea name="description" rows="3" placeholder="Project Description" style="width: 450px; margin-bottom: 10px"></textarea><br>
-		<input type="text" name="imgUrl1" placeholder="Screenshot #1" style="width: 450px; margin-bottom: 10px"><br>
-		<input type="text" name="imgUrl2" placeholder="Screenshot #2" style="width: 450px; margin-bottom: 10px"><br>
-		<input type="text" name="imgUrl3" placeholder="Screenshot #3" style="width: 450px; margin-bottom: 10px"><br>
-		<input type="submit" value="Save Project" class="btn">
+		<div class="pull-left" style="margin: 0; width: 50%">
+			<label><strong>Name</strong></label>
+			<input type="text" name="name" placeholder="Name" style="width: 90%">
+			<span class="help-block" style="color: white">Project's name.</span>
+			<label><strong>Screenshot #2</strong></label>
+			<input type="text" name="imgUrl2" placeholder="Screenshot URL" style="width: 90%">
+			<span class="help-block" style="color: white">Your Project screenshot URL (2).</span>
+		</div>
+		<div class="pull-right" style="margin: 0; width: 50%">
+			<label><strong>Screenshot #1</strong></label>
+			<input type="text" name="imgUrl1" placeholder="Screenshot URL" style="width: 90%">
+			<span class="help-block" style="color: white">Your Project screenshot URL (1).</span>
+			<label><strong>Screenshot #3</strong></label>
+			<input type="text" name="imgUrl3" placeholder="Screenshot URL" style="width: 90%">
+			<span class="help-block" style="color: white">Your Project screenshot URL (3).</span>
+		</div>
+		<div style="margin: 0; width: 95%">
+			<label><strong>Description</strong></label>
+			<textarea name="description" rows="3" placeholder="Description" style="width: 100%"></textarea>
+			<span class="help-block" style="color: white">Project's description.</span>
+		</div>
+		<input type="submit" value="Save Project" class="btn btn-success">
+		<button class="btn add-item" style="margin-left: 5px">Cancel</button>
 	}
 	</div>
 	<div class="content">

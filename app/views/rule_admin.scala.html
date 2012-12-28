@@ -16,7 +16,7 @@
 	<div class="black-add" style="display: none">
 		<h4>Edit Rule</h4>
 		<label>Start Vote Time</label>
-		<input type="text" name="start">
+		<input class="time-set" type="text" name="start">
 		<label>Finish Vote Time</label>
 		<input type="text" name="finish">
 		<input type="submit" value="Save Rule" class="btn">
@@ -27,4 +27,7 @@
 		<p>Finish: @rule.getFinish().toString()</p>
 	</div>
 	</div>
+	
+	<!-- Include JavaScript for Timepicker -->
+	<script src="@routes.Assets.at("javascripts/jquery.timepicker.min.js")" type="text/javascript"></script>
 }

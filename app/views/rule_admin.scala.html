@@ -4,6 +4,8 @@
 	@views.html.sidebar(user, "ADMIN RULE")
 }
 
+@import helper._
+
 @main("ExceedVote | Admin | Rule")(sidebar) {
 	<div class="shadow">
 	<header class="title">
@@ -15,19 +17,31 @@
 	<div class="btm-border"></div>
 	<div class="black-add" style="display: none">
 		<h4>Edit Rule</h4>
-		<label>Start Vote Time</label>
-		<input class="time-set" type="text" name="start">
-		<label>Finish Vote Time</label>
-		<input type="text" name="finish">
-		<input type="submit" value="Save Rule" class="btn">
+		@form(admin.routes.Rules.update()) {
+		<div class="pull-left" style="margin: 0; width: 50%">
+			<label><strong>Date</strong></label>
+			<input class="date-set" type="text" name="date" placeholder="Date" style="width: 90%">
+			<span class="help-block" style="color: white">Vote Date.</span>
+		</div>
+		<div class="pull-right" style="margin: 0; width: 50%">
+			<label><strong>Start</strong></label>
+			<input class="time-set" type="text" name="start" placeholder="Start Time" style="width: 90%">
+			<span class="help-block" style="color: white">Vote Start Time.</span>
+			<label><strong>Finish</strong></label>
+			<input class="time-set" type="text" name="finish" placeholder="Finish Time" style="width: 90%">
+			<span class="help-block" style="color: white">Vote Finish Time.</span>
+		</div>
+		<div style="clear: both"></div>
+		<div style="margin: 0 0 20px 0; width: 95%; position: relative">
+			<input type="submit" value="Save Rule" class="btn btn-success">
+			<button class="btn add-item" style="margin-left: 5px">Cancel</button>
+		</div>
+		}
 	</div>
 	<div class="content">
 		<h3 style="margin-top: 5px">Rule</h3>
-		<p>Start: @rule.startString()</p>
+		<p>Start: @rule.getStart().toString()</p>
 		<p>Finish: @rule.getFinish().toString()</p>
 	</div>
 	</div>
-	
-	<!-- Include JavaScript for Timepicker -->
-	<script src="@routes.Assets.at("javascripts/jquery.timepicker.min.js")" type="text/javascript"></script>
 }

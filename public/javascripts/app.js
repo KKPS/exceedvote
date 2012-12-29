@@ -3,4 +3,6 @@ $('.add-item').click(function () {
 	$('.black-add').slideToggle(250);
 });
 
-$('.time-set').timepicker({ 'forceRoundTime': true });
+$('.time-set').timepicker();
+
+$('.date-set').datepicker();

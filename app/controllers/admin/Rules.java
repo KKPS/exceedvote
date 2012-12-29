@@ -28,10 +28,6 @@ public class Rules extends Controller {
 		int month = Integer.parseInt(date[0]) - 1;
 		int day = Integer.parseInt(date[1]);
 		int year = Integer.parseInt(date[2]) - 1900;
-		System.out.println(month + " " + day + " " + year);
-		for (String d : date) {
-			System.out.print(d + "/");
-		}
 		System.out.println();
 		String start = null;
 		String start_in = requestForm.get("start");

@@ -25,12 +25,7 @@
 		<div class="pull-left" style="margin: 0; width: 50%">
 			<label><strong>Username</strong></label>
 			<input type="text" name="username" value="@user.getUsername()" style="width: 90%">
-			<span class="help-block">@(user.getUsername()) can't be change.</span>
-			<label><strong>Password</strong></label>
-			<input type="password" name="username" placeholder="Password" style="width: 90%">
-			<span class="help-block">Your new Password.</span>
-		</div>
-		<div class="pull-right" style="margin: 0; width: 50%">
+			<span class="help-block">Your new Username.</span>
 			<label><strong>Full Name</strong> (Not require)</label>
 			@if(user.getName() == "" || user.getName() == null) {
 			<input type="text" name="name" placeholder="Full Name" style="width: 90%">
@@ -38,6 +33,11 @@
 			<input type="text" name="name" placeholder="Full Name" value="@user.getName()" style="width: 90%">
 			}
 			<span class="help-block">Your Full name.</span>
+		</div>
+		<div class="pull-right" style="margin: 0; width: 50%">
+			<label><strong>Password</strong></label>
+			<input type="password" name="username" placeholder="Password" style="width: 90%">
+			<span class="help-block">Your new Password.</span>
 			<label><strong>Project</strong></label>
 			<select name="project_id" style="width: 94%">
 				@for(project <- projects) {

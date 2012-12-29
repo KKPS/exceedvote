@@ -33,6 +33,7 @@ GET     /ballot                         controllers.Ballots.index()
 
 # User - Setting
 GET     /setting                        controllers.Settings.index()
+POST    /setting                        controllers.Settings.update()
 
 # Admin Panel - Dashboard
 GET     /admin                          controllers.admin.Dashboard.index()

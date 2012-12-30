@@ -13,7 +13,7 @@ public class Users extends Controller {
 
 	public static Result index() {
 		User user_login = User.find.where().eq("username", request().username()).findUnique();
-		if (user_login.isAdmin) {
+		if (user_login.isAdmin()) {
 			return ok(views.html.users_admin.render(user_login, User.find.all(), Role.find.all(), Project.find.all()));
 		}
 		else {
@@ -71,10 +71,13 @@ public class Users extends Controller {
 		}
 		User update_user = new User(new_username, new_password, new_name, new_role, project, edit_user.isAdmin, edit_user.firstLogin);
 		update_user.update(edit_user.id);
-		if (session("username") == edit_user.username) {
+		if (session("username").equals(edit_user.username)) {
 			session("username", update_user.username);
+			return ok(views.html.user_admin.render(update_user, update_user, update_user.ballotThisUser(), Role.find.all(), Project.find.all()));
 		}
-		return ok(views.html.user_admin.render(user_login, update_user, update_user.ballotThisUser(), Role.find.all(), Project.find.all()));
+		else {
+			return ok(views.html.user_admin.render(user_login, update_user, update_user.ballotThisUser(), Role.find.all(), Project.find.all()));
+		}
 	}
 	
 	public static Result delete(String username) {

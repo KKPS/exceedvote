@@ -36,19 +36,12 @@
     				<div class="pull-left" style="margin: 0; width: 50%">
 						<label><strong>Username</strong></label>
 						<input type="text" name="username" placeholder="Username" style="width: 90%">
-						<span class="help-block">Your Username this can't be change later.</span>
+						<span class="help-block">Your Username.</span>
+					</div>
+					<div class="pull-right" style="margin: 0; width: 50%">
 						<label><strong>Password</strong></label>
 						<input type="password" name="password" placeholder="Password" style="width: 90%">
 						<span class="help-block">Your Password.</span>
-					</div>
-					<div class="pull-right" style="margin: 0; width: 50%">
-						<label><strong>Role</strong></label>
-						<select name="role_id" style="width: 94%">
-							@for(role <- roles) {
-							<option value="@role.id">@role.getName()</option>
-							}
-						</select>
-						<span class="help-block">What can defines you?</span>
 					</div>
 					<div style="clear: both;"></div>
 					<input type="submit" value="Sign Up" class="btn btn-primary" style="margin-bottom: 20px">

@@ -35,9 +35,7 @@ public class Settings extends Controller {
 		boolean firstLogin = user_before.isFirstLogin();
 		User new_user = new User(username, password, name, role, project, isAdmin, firstLogin);
 		new_user.update(user_before.id);
-		if (session("username") == user_before.username) {
-			session("username", new_user.username);
-		}
+		session("username", new_user.username);
 		return ok(views.html.setting.render(new_user, Role.find.all(), Project.find.all()));
 	}
 	

@@ -26,18 +26,26 @@
 			<tr>
 				<td>Full Name</td>
 				@if(user.getName() == "" || user.getName == null) {
-				<td>-</td>
+				<td>-- <em>None</em> --</td>
 				} else {
 				<td>@user.getName()</td>
 				}
 			</tr>
 			<tr>
 				<td>Role</td>
+				@if(user.getRole() == null) {
+				<td>-- <em>None</em> --</td>
+				} else {
 				<td>@(user.role.getName()) - @(user.role.getBallot()) Ballots/Criterion</td>
+				}
 			</tr>
 			<tr>
 				<td>Project</td>
-				<td>WorldNote</td>
+				@if(user.getProject() == null) {
+				<td>-- <em>None</em> --</td>
+				} else {
+				<td>@user.getProject().getName()</td>
+				}
 			</tr>
 		</table>
 		<h3>Now, It's time to VOTE!</h3>

@@ -16,6 +16,10 @@
 	<div class="btm-border"></div>
 	<div class="content">
 	@if(rule.canVote() == true) {
+	@if(user.getRole() == null) {
+		<h4>You can't vote now!</h4>
+		<p>You need to <a href="/setting">setup your Role</a> first.</p>
+	} else {
 	@for(criterion <- criteria) {
 		@helper.form(routes.Votes.vote()) {
 			<p>@criterion.question</p>
@@ -34,6 +38,7 @@
 				<p><input class="btn btn-danger" type="submit" value="Vote" disabled="disabled"></p>
 			}
 		}
+	}
 	}
 	} else {
 		<h3>Timed out!</h3>

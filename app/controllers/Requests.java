@@ -17,9 +17,9 @@ public class Requests extends Controller {
 		DynamicForm requestForm = form().bindFromRequest();
 		String username = requestForm.get("username");
 		String password = requestForm.get("password");
-		Long role_id = Long.parseLong(requestForm.get("role_id"));
-		Role role = Role.find.ref(role_id);
-		Request request = new Request(username, password, role);
+		// Long role_id = Long.parseLong(requestForm.get("role_id"));
+		// Role role = Role.find.ref(role_id);
+		Request request = new Request(username, password);
 		request.save();
 		// return ok(views.html.request_result.render(request));
 		return redirect("/request/" + request.getUsername());

@@ -31,7 +31,7 @@ users:
               id: 1
 
     - !!models.User
-        username:        b5410545915
+        username:        sonnyhonny
         password:        exceed
         name:            Kanokphol Techarattanaprasert
         isAdmin:         false
@@ -39,16 +39,6 @@ users:
         role:
             !!models.Role
               id: 1
-
-    - !!models.User
-        username:        teacher
-        password:        teacher
-        name:            James Edward Brucker
-        isAdmin:         false
-        firstLogin:      true
-        role:
-            !!models.Role
-              id: 3
 
 projects:
 

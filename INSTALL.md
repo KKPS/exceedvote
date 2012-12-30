@@ -1,4 +1,3 @@
-exceedvote Installation Guild
-=============================
+# exceedvote Installation Guide
 
 Coming soon...

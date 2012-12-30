@@ -10,4 +10,4 @@ More Details & [Installation Guide](https://github.com/KKPS/exceedvote/blob/mast
 
 * Kanokphol Techarattanaprasert 5410545915 (GitHub Username: [sonnyhonny](https://github.com/sonnyhonny))
 * Kunanon Tanrin 5410545991 (GitHub Username: [gentsmart](https://github.com/gentsmart))
-* ~~and Pasita Hanpanitkitkan 5410546261, Suphanat Savetapanu 5410547128 - Dropped~~
+* ~~and Pasita Hanpanitkitkan 5410546261, Suphanat Savetapanu 5410547128~~ - Dropped

@@ -2,9 +2,11 @@
 
 exceedvote Project for 219243 Software Specification and Design
 
-exceedvote is Web Application created on Play! Framework 2.0.4
+exceedvote is Web Application created on Play! Framework 2.0.4. Created for use in [eXceed Camp](http://exceed.cpe.ku.ac.th/).
 
-More Details & [Installation Guide](https://github.com/KKPS/exceedvote/blob/master/INSTALL.md) coming soon...
+## Installation
+
+See [Installation Guide](https://github.com/KKPS/exceedvote/blob/master/INSTALL.md)
 
 ## KKPS's Member
 

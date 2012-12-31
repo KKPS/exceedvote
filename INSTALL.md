@@ -4,7 +4,15 @@
 
 Download `/dist/exceedvote-1.0-SNAPSHOT.war` (exceedvote WAR build file) and running on your Tomcat server. [Using Tomcat](http://se.cpe.ku.ac.th/wiki/index.php/Using_Tomcat) can explain you how to setup Tomcat server and run your .war file
 
-This build of exceedvote is setup for using on se.cpe.ku.ac.th server. If you want to use exceedvote in your own setting. See below.
+After run exceedvote you can login to application by using these users.
+
+<table>
+    <tr><th>Username        <th>Password        <th>Admin        <th>Role
+    <tr><td>admin           <td>admin           <td>Yes          <td>Student
+    <tr><td>sonnyhonny      <td>exceed          <td>No           <td>Student
+</table>
+
+This build of exceedvote is setup for using on se.cpe.ku.ac.th server. If you want to use exceedvote in your own setting. See [below](https://github.com/KKPS/exceedvote/edit/master/INSTALL.md#run-via-play-framework). If you came from se.cpe.ku.ac.th you can use another user that I email to you.
 
 ## Run via Play! Framework
 

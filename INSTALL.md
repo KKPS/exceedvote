@@ -12,7 +12,7 @@ After run exceedvote you can login to application by using these users.
     <tr><td>sonnyhonny      <td>exceed          <td>No           <td>Student
 </table>
 
-This build of exceedvote is setup for using on se.cpe.ku.ac.th server. If you want to use exceedvote in your own setting. See [below](https://github.com/KKPS/exceedvote/edit/master/INSTALL.md#run-via-play-framework). If you came from se.cpe.ku.ac.th you can use another user that I email to you.
+This build of exceedvote is setup for using on se.cpe.ku.ac.th server. If you want to use exceedvote in your own setting. See [below](https://github.com/KKPS/exceedvote/blob/master/INSTALL.md#create-war-file-from-play-framework-project). If you came from se.cpe.ku.ac.th you can use another user that I email to you.
 
 ## Run via Play! Framework
 
